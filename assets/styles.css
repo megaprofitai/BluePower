@@ -652,3 +652,93 @@ body.locked{ overflow:hidden; }
 .u-card{ cursor:pointer; }
 .u-card:focus-visible{ outline:2px solid var(--orange);outline-offset:3px; }
 .u-card:hover .u-open svg{ transform:translateX(3px); }
+
+/* =========================================================
+   BUY — kortelės, nuotraukų vietos ženklai, užklausos forma
+   ========================================================= */
+
+/* tas pats konteineris kaip rent */
+.b-intro{
+  font-size:16px;line-height:1.6;color:var(--body);
+  max-width:720px;margin:-8px 0 26px;
+}
+
+/* --- nuotraukos vietos ženklas --- */
+.b-art{ background:#fff;padding:0;border-bottom:1px solid var(--line); }
+.b-photo{ width:100%;height:230px;object-fit:contain;display:block;background:#fff; }
+.b-empty{
+  height:230px;background:
+    repeating-linear-gradient(45deg,#F4F7FA 0 12px,#EDF2F7 12px 24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  color:var(--dim);
+}
+.b-empty svg{ width:34px !important;height:34px !important;flex:0 0 auto; }
+.b-empty span{
+  font-family:var(--font-display);font-size:11px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.u-badge.new i{ background:var(--head-blue); }
+
+/* --- savybių sąrašas --- */
+.b-feats{ list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:8px; }
+.b-feats li{ display:flex;align-items:center;gap:9px;font-size:14px;color:var(--body); }
+.b-feats li svg{ width:15px;height:15px;color:var(--head-blue);flex-shrink:0; }
+.b-feats.big li{ font-size:15px;margin-bottom:2px; }
+.b-feats.big{ margin-bottom:22px; }
+
+.muted-price{ color:var(--dim);font-style:italic; }
+
+/* --- modalo nuotrauka --- */
+.b-modal-media{ margin:-4px 0 22px;border:1px solid var(--line);border-radius:var(--r-card);overflow:hidden; }
+.b-modal-media .b-photo,.b-modal-media .b-empty{ height:250px; }
+
+.b-pending{
+  border:1px dashed var(--line-2);border-radius:var(--r-card);
+  background:#FAFCFE;padding:22px;text-align:center;
+  color:var(--body);font-size:14px;
+}
+
+/* --- partnerio blokas --- */
+.b-partner{
+  border:1px solid var(--line);border-radius:var(--r-card);background:#fff;
+  padding:34px;display:flex;align-items:center;justify-content:space-between;
+  gap:28px;flex-wrap:wrap;
+}
+
+/* --- žinutės laukas --- */
+.msg-add{ margin-bottom:18px; }
+.msg-toggle{
+  display:inline-flex;align-items:center;gap:9px;
+  background:none;border:0;padding:4px 0;cursor:pointer;
+  font-family:var(--font-display);font-size:13.5px;font-weight:600;color:var(--head-blue);
+}
+.msg-toggle em{ font-style:normal;color:var(--dim);font-weight:500; }
+.msg-plus{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--line-2);background:#fff;color:var(--head-blue);
+  transition:transform .18s ease,background-color .18s ease,border-color .18s ease;
+}
+.msg-toggle:hover .msg-plus{ border-color:var(--head-blue);background:var(--mist); }
+.msg-toggle.is-open .msg-plus{ transform:rotate(45deg);background:var(--mist); }
+.msg-box{ margin-top:10px; }
+.msg-box textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 12px;resize:vertical;
+  font-family:var(--font-body);font-size:14px;color:var(--navy-text);background:#fff;outline:0;
+}
+.msg-box textarea:focus{ border-color:var(--head-blue); }
+.b-card .wz-send{ width:100%;justify-content:center; }
+.wz-send{ width:100%;justify-content:center; }
+
+@media (max-width:640px){
+  .b-partner{ padding:22px; }
+}
+
+/* --- BUY: gaminio renderiai juodame fone + busenos zenkliukas --- */
+.b-art{ background:#fff; }
+.b-photo{ height:210px;object-fit:contain;background:#fff; }
+.u-badge.cond-new i{ background:#28A45C; }
+.u-badge.cond-used i{ background:#E0902F; }
+.b-modal-media{ background:#fff; }
+.b-modal-media .b-photo{ height:250px; }
+.b-note{ font-size:12px;color:var(--dim);margin:10px 0 0;font-style:italic; }

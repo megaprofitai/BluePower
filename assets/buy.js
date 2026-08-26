@@ -107,9 +107,15 @@
                 '<label>Email<input type="email" name="em" placeholder="you@company.no"></label>' +
                 '<label>Phone<input type="tel" name="ph" placeholder="+47 …"></label>' +
               '</div>' +
-              '<label class="wz-msg">Message' +
-                '<textarea name="msg" rows="4" placeholder="Tell us about the job, timing or the configuration you need."></textarea>' +
-              '</label>' +
+              '<div class="msg-add">' +
+                '<button class="msg-toggle" type="button" aria-expanded="false">' +
+                  '<span class="msg-plus" aria-hidden="true">' +
+                    '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>' +
+                  '</span>Add a message <em>(optional)</em></button>' +
+                '<div class="msg-box" hidden>' +
+                  '<textarea name="msg" rows="4" placeholder="Tell us about the job, timing or the configuration you need."></textarea>' +
+                '</div>' +
+              '</div>' +
               '<div class="lp lp-sum">' +
                 '<div class="lp-head"><span>Your enquiry</span></div>' +
                 '<div class="lp-line"><span>Equipment</span><b>' + it.name + '</b></div>' +
@@ -146,6 +152,17 @@
     document.body.classList.add('locked');
 
     var q = function (s) { return modal.querySelector(s); };
+
+    var mt = q('.msg-toggle'), mb = q('.msg-box');
+    if (mt && mb) {
+      mt.addEventListener('click', function () {
+        var open = mb.hidden;
+        mb.hidden = !open;
+        mt.setAttribute('aria-expanded', open ? 'true' : 'false');
+        mt.classList.toggle('is-open', open);
+        if (open) mb.querySelector('textarea').focus();
+      });
+    }
 
     q('.wz-send').addEventListener('click', function () {
       var em = q('[name=em]').value.trim(), ph = q('[name=ph]').value.trim();
