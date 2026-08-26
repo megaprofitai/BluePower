@@ -437,7 +437,7 @@ body.locked{ overflow:hidden; }
 .f-pill.is-on{ background:var(--navy-panel);border-color:var(--navy-panel);color:#fff; }
 
 /* --- sekcija --- */
-.u-sec{ padding:52px 0 10px; }
+.u-sec{ padding-top:52px;padding-bottom:10px; }
 .u-sec .u-head{ display:flex;align-items:baseline;justify-content:space-between;
   gap:20px;flex-wrap:wrap;margin-bottom:26px; }
 .u-sec .u-head h2{ font-size:34.5px;font-weight:800;letter-spacing:-.01em;color:var(--head-blue);margin:0; }
@@ -478,7 +478,7 @@ body.locked{ overflow:hidden; }
 .u-open svg{ width:15px;height:15px;transition:transform .18s ease; }
 .u-open:hover svg{ transform:translateX(3px); }
 
-.no-res{ text-align:center;color:var(--body);padding:50px 0;font-size:16px; }
+.no-res{ text-align:center;color:var(--body);padding-top:50px;padding-bottom:50px;font-size:16px; }
 
 /* --- apatinis blokas --- */
 .rent-cta{ background:var(--navy-panel);text-align:center;padding:70px var(--pad) 78px;margin-top:56px; }
@@ -645,7 +645,7 @@ body.locked{ overflow:hidden; }
 .u-foot{ padding-top:12px; }
 .u-price{ font-size:13.5px; }
 .u-price b{ font-size:17.5px; }
-.u-sec{ padding:46px 0 8px; }
+.u-sec{ padding-top:46px;padding-bottom:8px; }
 .u-sec .u-head{ margin-bottom:22px; }
 
 /* --- visa kortele spaudziama --- */
