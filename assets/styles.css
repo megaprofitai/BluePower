@@ -742,3 +742,142 @@ body.locked{ overflow:hidden; }
 .b-modal-media{ background:#fff; }
 .b-modal-media .b-photo{ height:250px; }
 .b-note{ font-size:12px;color:var(--dim);margin:10px 0 0;font-style:italic; }
+
+/* =========================================================
+   SELL — skelbimo vedlys (What → Condition → Who)
+   + gyva perziuros kortele desineje
+   ========================================================= */
+
+/* Sell turinys, kaip rent/buy, siauresnis uz likusia svetaine */
+.sell-hero,
+.sell-stage.wrap{ --pad: max(28px, calc((100vw - 1280px) / 2)); }
+
+.sell-hero{ background:var(--mist); padding:62px var(--pad) 46px; }
+.sell-hero .sh-in{ max-width:760px; }
+.sell-hero h1{
+  font-size:44px;font-weight:800;letter-spacing:-.02em;line-height:1.1;
+  color:var(--navy-text);margin:0 0 14px;
+}
+.sell-hero p{ font-size:18px;line-height:1.6;color:var(--body);margin:0; }
+
+/* PASTABA: .sell-stage turi klase .wrap — jokio padding shorthand! */
+.sell-stage{
+  background:var(--mist);
+  padding-top:10px;padding-bottom:74px;
+  display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,1fr);
+  gap:26px;align-items:start;
+}
+
+.sl-wz{ padding:26px 28px 28px; }
+.sl-wz .wz-steps{ margin-bottom:24px; }
+.sl-label{ font-size:13px;font-weight:600;color:var(--navy-text);margin:0 0 8px; }
+.wz-fields.one{ grid-template-columns:1fr; }
+
+/* --- kategoriju plyteles --- */
+.sl-types{ display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px; }
+.sl-type{
+  border:1px solid var(--line);background:#fff;border-radius:var(--r-card);
+  padding:15px 8px 13px;cursor:pointer;text-align:center;
+  font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--navy-text);
+  transition:border-color .16s ease,background-color .16s ease,color .16s ease;
+}
+.sl-type svg{ width:28px;height:28px;margin:0 auto 9px;color:var(--head-blue);
+  transition:color .16s ease; }
+.sl-type:hover{ border-color:var(--head-blue); }
+.sl-type.is-on{ background:var(--navy-panel);border-color:var(--navy-panel);color:#fff; }
+.sl-type.is-on svg{ color:#fff; }
+
+/* --- bukles pasirinkimas --- */
+.sl-conds{ display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px; }
+.sl-cond{
+  display:flex;align-items:center;gap:10px;text-align:left;
+  border:1px solid var(--line);background:#fff;border-radius:8px;padding:11px 13px;
+  cursor:pointer;font-family:var(--font-body);font-size:14px;font-weight:500;color:var(--navy-text);
+  transition:border-color .16s ease,background-color .16s ease;
+}
+.sl-cond:last-child{ grid-column:1 / -1; }
+.sl-cond i{ width:9px;height:9px;border-radius:50%;flex-shrink:0; }
+.sl-cond:hover{ border-color:var(--head-blue); }
+.sl-cond.is-on{ border-color:var(--head-blue);background:#EEF4FA;font-weight:600; }
+
+/* --- nuotrauku ikelimas --- */
+.sl-drop{
+  border:1.5px dashed #C6D4E2;border-radius:var(--r-card);background:#fff;
+  padding:24px 18px;text-align:center;margin-bottom:12px;
+  transition:border-color .16s ease,background-color .16s ease;
+}
+.sl-drop.is-over{ border-color:var(--head-blue);background:var(--mist); }
+.sl-drop svg{ width:26px;height:26px;color:var(--head-blue);margin:0 auto 10px; }
+.sl-drop p{ font-size:13.5px;color:var(--body);margin:0 0 13px; }
+.sl-drop .btn{ text-transform:none;letter-spacing:0;font-size:14px;font-weight:600;padding:9px 17px; }
+
+.sl-thumbs{ display:flex;flex-wrap:wrap;gap:8px; }
+.sl-thumbs:not(:empty){ margin-bottom:18px; }
+.sl-thumb{ position:relative;width:66px;height:66px;border-radius:8px;
+  overflow:hidden;border:1px solid var(--line); }
+.sl-thumb img{ width:100%;height:100%;object-fit:cover; }
+.sl-thumb button{
+  position:absolute;top:3px;right:3px;width:19px;height:19px;border-radius:50%;
+  border:0;background:rgba(6,19,39,.74);color:#fff;cursor:pointer;padding:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.sl-thumb button svg{ width:10px;height:10px; }
+.sl-thumb button:hover{ background:var(--orange); }
+
+/* --- tekstas ir sutikimas --- */
+.sl-ta{ margin-bottom:16px; }
+.sl-ta textarea{
+  width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 12px;
+  font-family:var(--font-body);font-size:14px;color:var(--navy-text);
+  background:#fff;outline:0;resize:vertical;min-height:96px;
+}
+.sl-ta textarea:focus{ border-color:var(--head-blue); }
+.sl-consent{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  font-size:13.5px;line-height:1.5;color:var(--body);margin-bottom:16px;
+}
+.sl-consent input{ width:16px;height:16px;margin:1px 0 0;accent-color:var(--orange);flex-shrink:0; }
+
+/* --- sonine panele --- */
+.sl-aside{ position:sticky;top:80px;display:flex;flex-direction:column;gap:16px; }
+.sl-panel{ background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:18px 20px 20px; }
+.sl-panel h4{
+  font-family:var(--font-display);font-size:11.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--head-blue);margin:0 0 14px;
+}
+.sl-panel .dn-steps{ margin:0; }
+.sl-note{ font-size:12px;color:#8496AB;margin:14px 0 0;font-style:italic; }
+
+.sl-prev{ cursor:default; }
+.sl-prev:hover{ border-color:var(--line);box-shadow:none; }
+.sl-prev .u-art{ padding:0;height:176px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center; }
+.sl-prev .u-art img{ width:100%;height:100%;object-fit:cover; }
+.sl-empty{ display:flex;flex-direction:column;align-items:center;gap:9px;
+  color:#93A6BB;font-size:13px;text-align:center;padding:0 18px; }
+.sl-empty svg{ width:30px;height:30px; }
+.sl-prev .u-body{ padding:17px 18px 18px; }
+.sl-prev h3{ font-size:17px;margin:0 0 6px; }
+.sl-prev .u-tag{ font-size:13.5px;margin:0 0 12px; }
+.sl-prev .is-ghost{ color:#93A6BB;font-weight:500; }
+.sl-prev .u-chips:empty{ display:none; }
+.sl-prev .u-foot{ padding-top:12px; }
+.sl-prev .u-price{ font-size:12.5px;letter-spacing:.02em;color:#8496AB; }
+
+/* --- responsive --- */
+@media (max-width:980px){
+  .sell-stage{ grid-template-columns:1fr;gap:20px; }
+  .sl-aside{ position:static; }
+  .sl-panel .sl-prev{ max-width:420px; }
+}
+@media (max-width:640px){
+  .sell-hero{ padding-top:40px;padding-bottom:32px; }
+  .sell-hero h1{ font-size:30px; }
+  .sell-hero p{ font-size:16px; }
+  .sl-wz{ padding:20px 18px 22px; }
+  .sl-types{ grid-template-columns:repeat(2,1fr); }
+  .sl-conds{ grid-template-columns:1fr; }
+  .sl-cond:last-child{ grid-column:auto; }
+  .wz-steps li span{ display:none; }
+  .wz-steps li{ flex:0 0 auto; }
+}
