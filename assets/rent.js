@@ -72,7 +72,6 @@
       : '<span class="u-badge busy"><i></i>On hire · free ' + dLabel(firstFree(p)) + '</span>';
     return '' +
       '<article class="u-card" data-id="' + p.id + '" data-cat="' + p.cat + '" ' +
-        'tabindex="0" role="button" aria-label="' + p.name + ' — details and booking" ' +
         'data-search="' + (p.name + ' ' + p.tagline + ' ' + p.chips.join(' ')).toLowerCase().replace(/"/g, '') + '">' +
         '<div class="u-art">' + badge + artFor(p) + '</div>' +
         '<div class="u-body">' +
@@ -84,9 +83,9 @@
             'Fully serviced · hoses &amp; nozzles included</p>' +
           '<div class="u-foot">' +
             '<span class="u-price">from <b>' + fmt(p.week) + ' kr</b>/week</span>' +
-            '<span class="u-open">Details &amp; booking' +
+            '<button class="u-open" type="button">Details &amp; booking' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>' +
-            '</span>' +
+            '</button>' +
           '</div>' +
         '</div>' +
       '</article>';
@@ -436,20 +435,11 @@
   /* ---------- paleidimas ---------- */
   renderGrids();
   wireFilters();
-  function openFromCard(card) {
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.u-open') : null;
+    if (!btn) return;
+    var card = btn.closest('.u-card');
     var p = PRODUCTS.filter(function (x) { return x.id === card.getAttribute('data-id'); })[0];
     if (p) openModal(p);
-  }
-  document.addEventListener('click', function (e) {
-    if (modal) return;                      /* modalas jau atidarytas */
-    var card = e.target.closest ? e.target.closest('.u-card') : null;
-    if (card) openFromCard(card);
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Enter' && e.key !== ' ') return;
-    var card = e.target.closest ? e.target.closest('.u-card') : null;
-    if (!card) return;
-    e.preventDefault();
-    openFromCard(card);
   });
 })();
