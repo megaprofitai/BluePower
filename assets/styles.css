@@ -652,4 +652,3 @@ body.locked{ overflow:hidden; }
 .u-card{ cursor:pointer; }
 .u-card:focus-visible{ outline:2px solid var(--orange);outline-offset:3px; }
 .u-card:hover .u-open svg{ transform:translateX(3px); }
-.u-open{ pointer-events:none; }   /* kad paspaudimas visada kristu ant korteles */
