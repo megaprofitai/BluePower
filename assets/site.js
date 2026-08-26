@@ -130,7 +130,7 @@
       '<div class="hdr-right">' +
         '<button class="lang" id="langBtn" aria-label="Change language">' +
           (lang === 'en' ? 'no' : 'en') + '</button>' +
-        '<a class="emg" href="tel:+4795169552">' + svg(ICON.phone, 2) +
+        '<a class="emg" href="contact.html">' + svg(ICON.phone, 2) +
           '<span data-no="' + T.emergency.no + '">' + T.emergency.en + '</span></a>' +
         '<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">' +
           svg(ICON.burger, 2) + '</button>' +
