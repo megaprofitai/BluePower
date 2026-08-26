@@ -18,10 +18,14 @@
   ];
 
   /* Sritys po logotipu */
+  /* Kuris puslapis kuriai sričiai priklauso.
+     Esant bet kuriame water-srities puslapyje, "Water jetting" lieka ACTIVE. */
   var DIVISIONS = [
     { id: 'silo',  href: 'silo.html',  en: 'Silo cleaning', no: 'Silorengjøring',
-      icon: '<path d="M6 21V8a6 6 0 0 1 12 0v13"/><path d="M4 21h16"/><path d="M6 12h12"/><path d="M6 16.5h12"/>' },
+      pages: ['silo'],
+      icon: '<path d="M4 3h16"/><path d="M6.5 3v9l3 4.5V21h5v-4.5l3-4.5V3"/><path d="M6.5 8.5h11"/>' },
     { id: 'water', href: 'index.html', en: 'Water jetting', no: 'Vannjetting',
+      pages: ['water', 'rent', 'buy', 'sell', 'contact'],
       icon: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/>' }
   ];
 
@@ -101,7 +105,7 @@
     }).join('');
 
     var divHtml = DIVISIONS.map(function (d) {
-      var isHere = (page === d.id);
+      var isHere = (d.pages.indexOf(page) !== -1);
       return '<a class="vitem' + (isHere ? ' is-here' : '') + '" href="' + d.href + '">' +
         svg(d.icon) +
         '<span class="vlabel" data-no="' + d.no + '">' + d.en + '</span>' +
