@@ -618,3 +618,38 @@ body.locked{ overflow:hidden; }
   .rent-cta h2{ font-size:24px; }
   .sample-flag{ left:10px;bottom:10px;font-size:10px;padding:6px 10px; }
 }
+
+/* =========================================================
+   RENT — patikslinimai: siauresnis konteineris, mazesnes korteles,
+   visa kortele spaudziama
+   ========================================================= */
+
+/* Rent turinys siauresnis uz likusia svetaine ir centruotas,
+   kad korteles nelystu prie krastu. */
+.steps3,
+.finder,
+.u-sec.wrap,
+.no-res.wrap{
+  --pad: max(28px, calc((100vw - 1180px) / 2));
+}
+
+/* --- kortele mazesne --- */
+.u-grid{ gap:22px; }
+.u-art{ padding:12px; }
+.u-art .u-photo{ height:180px; }
+.u-body{ padding:18px 20px 20px; }
+.u-body h3{ font-size:17.5px;margin:0 0 7px; }
+.u-tag{ font-size:14px;margin:0 0 12px; }
+.u-chips span{ font-size:12px;padding:4px 9px; }
+.u-serviced{ font-size:12.5px;margin:0 0 12px; }
+.u-foot{ padding-top:12px; }
+.u-price{ font-size:13.5px; }
+.u-price b{ font-size:17.5px; }
+.u-sec{ padding:46px 0 8px; }
+.u-sec .u-head{ margin-bottom:22px; }
+
+/* --- visa kortele spaudziama --- */
+.u-card{ cursor:pointer; }
+.u-card:focus-visible{ outline:2px solid var(--orange);outline-offset:3px; }
+.u-card:hover .u-open svg{ transform:translateX(3px); }
+.u-open{ pointer-events:none; }   /* kad paspaudimas visada kristu ant korteles */
