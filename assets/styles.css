@@ -630,7 +630,7 @@ body.locked{ overflow:hidden; }
 .finder,
 .u-sec.wrap,
 .no-res.wrap{
-  --pad: max(28px, calc((100vw - 1180px) / 2));
+  --pad: max(28px, calc((100vw - 1280px) / 2));
 }
 
 /* --- kortele mazesne --- */
