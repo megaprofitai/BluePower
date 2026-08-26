@@ -15,7 +15,7 @@ const BUY_ITEMS = [
     brand: 'Conjet',
     name: 'Conjet ACR 327',
     condition: 'new',
-    photo: 'assets/units/conjet-327.webp',
+    photo: 'assets/units/conjet-327.webp?v=2',
     price: null,
 
     tagline: 'Compact and flexible — passes through an opening under 0.9 m.',
@@ -48,7 +48,7 @@ const BUY_ITEMS = [
     brand: 'Conjet',
     name: 'Conjet ACR 557XL',
     condition: 'new',
-    photo: 'assets/units/conjet-557xl.webp',
+    photo: 'assets/units/conjet-557xl.webp?v=2',
     price: null,
 
     tagline: 'Exceptional reach and flexibility — up to 6.3 m vertical.',
@@ -82,7 +82,7 @@ const BUY_ITEMS = [
     brand: 'Conjet',
     name: 'Conjet 101 NALTA',
     condition: 'new',
-    photo: 'assets/units/conjet-101.webp',
+    photo: 'assets/units/conjet-101.webp?v=2',
     price: null,
 
     tagline: "Efficient and portable — the world's smallest hydrodemolition robot.",
