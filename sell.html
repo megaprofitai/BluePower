@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#061327">
-<title data-no="Selg utstyr — Blue Power | Bluepower">Sell Equipment — Blue Power | Bluepower</title>
+<meta name="robots" content="noindex, nofollow">
+<title data-no="Selg ditt utstyr | Bluepower">Sell your equipment | Bluepower</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -15,22 +16,194 @@
 <div id="site-header"></div>
 
 <main>
-  <section class="page-head">
-    <p class="eyebrow" data-no="Høytrykkspumper &amp; Industrielle Tjenester">High-Pressure Pumps &amp; Industrial Services</p>
-    <h1 data-no="Selg">Sell</h1>
-    <p data-no="Se tilgjengelig utstyr eller send inn ditt eget for salg.">Browse available equipment or submit your own for sale.</p>
+
+  <!-- ANTRASTE — tekstas verbatim is bluepower.no/en/water/sell -->
+  <section class="sell-hero">
+    <div class="sh-in">
+      <h1 data-no="Selg ditt utstyr">Sell your equipment</h1>
+      <p data-no="Har du utstyr du ønsker å selge? Vi hjelper med å koble selgere med riktige kjøpere i markedet.">Do you have equipment you want to sell? We help connect sellers with the right buyers in the market.</p>
+    </div>
   </section>
 
-  <section class="wrap" style="padding-top:8px;padding-bottom:8px;">
-    <div class="pending">
-      <strong>Turinys dar neįkeltas</strong>
-      <span>Šis puslapis laukia tikro turinio iš bluepower.no/en/sell.
-      Karkasas, navigacija ir kalbos perjungimas jau veikia.</span>
+  <section class="sell-stage wrap">
+
+    <!-- ================= VEDLYS ================= -->
+    <div class="wz sl-wz">
+      <ol class="wz-steps">
+        <li class="is-on" data-s="1"><b>1</b><span data-no="Hva">What</span></li>
+        <li data-s="2"><b>2</b><span data-no="Tilstand">Condition</span></li>
+        <li data-s="3"><b>3</b><span data-no="Hvem">Who</span></li>
+      </ol>
+
+      <!-- ---------- 1. KAS ---------- -->
+      <section class="wz-step is-on" data-step="1">
+        <h3 data-no="Hva selger du?">What are you selling?</h3>
+        <p class="wz-hint" data-no="Velg en kategori, og fortell oss merke og modell.">Pick a category, then tell us the make and model.</p>
+
+        <div class="sl-types">
+          <button type="button" class="sl-type" data-cat="pump">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="12" height="9" rx="2"/><path d="M15 12h3l3-4v9l-3-4h-3"/><path d="M7 9V6h4v3"/><circle cx="9" cy="13.5" r="2"/></svg>
+            <span data-no="Pumpe">Pump</span>
+          </button>
+          <button type="button" class="sl-type" data-cat="robot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="8" rx="2"/><path d="M12 10V6"/><circle cx="12" cy="4.5" r="1.5"/><path d="M8.5 14h.01M15.5 14h.01"/><path d="M3 18h18"/></svg>
+            <span data-no="Robot">Robot</span>
+          </button>
+          <button type="button" class="sl-type" data-cat="atex">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20V9a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v11"/><path d="M6 20h12"/><path d="M10 5V3h4v2"/><path d="M9.5 12h5"/></svg>
+            <span data-no="ATEX-støvsuger">ATEX vacuum</span>
+          </button>
+          <button type="button" class="sl-type" data-cat="other">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+            <span data-no="Annet">Other</span>
+          </button>
+        </div>
+
+        <div class="wz-fields one">
+          <label><span data-no="Utstyrstype">Equipment type</span>
+            <input type="text" name="type" data-ph-no="f.eks. høytrykkspumpe, hydrodemoleringsrobot" placeholder="e.g. high-pressure pump, hydro-demolition robot">
+          </label>
+        </div>
+
+        <div class="wz-fields">
+          <label><span data-no="Produsent / modell">Manufacturer / model</span>
+            <input type="text" name="make">
+          </label>
+          <label><span data-no="År">Year</span>
+            <input type="text" name="year" inputmode="numeric" maxlength="4">
+          </label>
+        </div>
+
+        <button class="btn btn-primary wz-next" type="button" disabled><span data-no="Fortsett">Continue</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </button>
+      </section>
+
+      <!-- ---------- 2. BUKLE ---------- -->
+      <section class="wz-step" data-step="2">
+        <h3 data-no="Hvilken tilstand er det i?">What condition is it in?</h3>
+        <p class="wz-hint" data-no="Bilder hjelper kjøpere å bestemme seg — legg gjerne til flere.">Photos help buyers decide — add as many as you like.</p>
+
+        <div class="sl-conds">
+          <button type="button" class="sl-cond" data-cond="new"><i style="background:#28A45C"></i><span data-no="Ny">New</span></button>
+          <button type="button" class="sl-cond" data-cond="likenew"><i style="background:#57B07C"></i><span data-no="Brukt – som ny">Used – like new</span></button>
+          <button type="button" class="sl-cond" data-cond="good"><i style="background:#1F4F82"></i><span data-no="Brukt – god">Used – good</span></button>
+          <button type="button" class="sl-cond" data-cond="fair"><i style="background:#E0902F"></i><span data-no="Brukt – akseptabel">Used – fair</span></button>
+          <button type="button" class="sl-cond" data-cond="poor"><i style="background:#B4574A"></i><span data-no="Brukt – dårlig">Used – poor</span></button>
+        </div>
+
+        <div class="wz-fields one">
+          <label><span data-no="Plassering">Location</span>
+            <input type="text" name="loc" data-ph-no="Land, by" placeholder="Country, city">
+          </label>
+        </div>
+
+        <p class="sl-label" data-no="Last opp bilder">Upload images</p>
+        <div class="sl-drop" id="drop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          <p data-no="JPG eller PNG, flere filer tillatt">JPG or PNG, multiple files allowed</p>
+          <button type="button" class="btn btn-outline" id="pickBtn"><span data-no="Velg filer">Choose files</span></button>
+          <input type="file" id="files" accept="image/jpeg,image/png" multiple hidden>
+        </div>
+        <div class="sl-thumbs" id="thumbs"></div>
+
+        <div class="wz-nav">
+          <button class="btn btn-outline wz-back" type="button"><span data-no="Tilbake">Back</span></button>
+          <button class="btn btn-primary wz-next" type="button" disabled><span data-no="Fortsett">Continue</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ---------- 3. KAS SIULO ---------- -->
+      <section class="wz-step" data-step="3">
+        <h3 data-no="Hvor kan vi nå deg?">Where do we reach you?</h3>
+        <p class="wz-hint" data-no="Vi bruker disse opplysningene kun til å diskutere denne oppføringen.">We only use these details to discuss this listing.</p>
+
+        <div class="wz-fields">
+          <label><span data-no="Navn *">Name *</span>
+            <input type="text" name="nm">
+          </label>
+          <label><span data-no="Firma">Company</span>
+            <input type="text" name="co">
+          </label>
+          <label><span data-no="E-post *">Email *</span>
+            <input type="email" name="em">
+          </label>
+          <label><span data-no="Telefon">Phone</span>
+            <input type="tel" name="ph" data-ph-no="+47 …" placeholder="+47 …">
+          </label>
+        </div>
+
+        <div class="sl-ta">
+          <p class="sl-label" data-no="Tilleggsdetaljer">Additional details</p>
+          <textarea name="msg" rows="4"></textarea>
+        </div>
+
+        <label class="sl-consent">
+          <input type="checkbox" name="consent">
+          <span data-no="Jeg godtar at Blue Power AS kan kontakte meg angående denne oppføringen.">I agree that Blue Power AS may contact me regarding this listing.</span>
+        </label>
+
+        <p class="wz-err" id="err" hidden></p>
+
+        <div class="wz-nav">
+          <button class="btn btn-outline wz-back" type="button"><span data-no="Tilbake">Back</span></button>
+          <button class="btn btn-primary wz-send" type="button"><span data-no="Send inn utstyr">Submit equipment</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ---------- 4. PATVIRTINIMAS ---------- -->
+      <section class="wz-step wz-done" data-step="4">
+        <div class="dn-tick">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 data-no="Oppføringen er sendt">Listing submitted</h3>
+        <p class="wz-hint" id="doneRef"></p>
+        <ol class="dn-steps" id="doneSteps"></ol>
+        <button class="btn btn-outline" type="button" id="againBtn"><span data-no="Ny oppføring">New listing</span></button>
+      </section>
     </div>
+
+    <!-- ================= SONINE PANELE ================= -->
+    <aside class="sl-aside">
+      <div class="sl-panel">
+        <h4 id="pvHead">Your listing</h4>
+        <article class="u-card sl-prev">
+          <div class="u-art">
+            <span class="u-badge" id="pvBadge" hidden><i></i><span></span></span>
+            <div class="sl-empty" id="pvEmpty">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4 17 5-5 4 4 3-2 4 4"/></svg>
+              <span></span>
+            </div>
+            <img id="pvImg" alt="" hidden>
+          </div>
+          <div class="u-body">
+            <h3 id="pvName">—</h3>
+            <p class="u-tag" id="pvType">—</p>
+            <div class="u-chips" id="pvChips"></div>
+            <div class="u-foot">
+              <span class="u-price" id="pvState"></span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="sl-panel">
+        <h4 id="nxHead">What happens next</h4>
+        <ol class="dn-steps" id="nxSteps"></ol>
+        <p class="sl-note" id="nxNote"></p>
+      </div>
+    </aside>
+
   </section>
 </main>
 
 <div id="site-footer"></div>
+
 <script src="assets/site.js"></script>
+<script src="assets/sell.js"></script>
 </body>
 </html>
