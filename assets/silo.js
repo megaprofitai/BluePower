@@ -159,7 +159,7 @@
 
     return '' +
     '<div class="bm-overlay" data-close></div>' +
-    '<div class="bm" role="dialog" aria-modal="true" aria-labelledby="bmTitle">' +
+    '<div class="bm bm-tech' + (t.svg ? ' is-wide' : '') + '" role="dialog" aria-modal="true" aria-labelledby="bmTitle">' +
       '<header class="bm-head">' +
         '<div><p class="bm-eyebrow">' + EYEBROW[L] + '</p>' +
           '<h2 id="bmTitle">' + ((L === 'no' && t.nameNo) ? t.nameNo : t.name) + '</h2></div>' +
@@ -170,10 +170,12 @@
       '<div class="bm-body one">' +
         '<div class="bm-left">' +
           '<figure class="bm-fig">' + fig + '</figure>' +
-          '<p class="bm-desc">' + desc + '</p>' +
-          '<ul class="bm-list">' +
-            t.list[L].map(function (i) { return '<li>' + i + '</li>'; }).join('') +
-          '</ul>' +
+          '<div class="bm-txt">' +
+            '<p class="bm-desc">' + desc + '</p>' +
+            '<ul class="bm-list">' +
+              t.list[L].map(function (i) { return '<li>' + i + '</li>'; }).join('') +
+            '</ul>' +
+          '</div>' +
         '</div>' +
       '</div>' +
     '</div>';
