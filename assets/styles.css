@@ -1082,7 +1082,7 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   color:#fff; font-weight:800; font-size:59px; line-height:1.08;
   letter-spacing:-.02em; margin:0 0 24px; max-width:790px;
 }
-.si-hero h1 .dot{ color:var(--orange); }
+.si-hero h1 .dot{ color:#fff; }
 .si-lead{
   color:rgba(255,255,255,.86); font-size:18px; line-height:1.65;
   max-width:600px; margin:0 0 34px;
@@ -1118,6 +1118,8 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
 .si-col{ text-align:center; }
 .si-ic{ display:inline-flex; color:var(--head-blue); margin-bottom:18px; }
 .si-ic svg{ width:44px; height:44px; }
+.si-problem .si-ic svg,
+.si-gain .si-ic svg{ width:56px; height:56px; }
 .si-col h3{ font-size:16px; font-weight:700; line-height:1.35; color:var(--navy-text); margin:0 0 14px; }
 .si-col p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
 .si-gain .si-ic{ color:#fff; }
@@ -1140,8 +1142,8 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   font-size:14px; font-weight:700; letter-spacing:.045em; text-transform:uppercase;
   color:var(--navy-text);
 }
-.si-step-ic{ display:inline-flex; color:var(--head-blue); margin-bottom:24px; }
-.si-step-ic svg{ width:52px; height:52px; }
+.si-step-ic{ display:flex; justify-content:center; color:var(--head-blue); margin-bottom:26px; }
+.si-step-ic svg{ width:66px; height:66px; }
 .si-step p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
 
 /* =============== centruotos sekcijų antraštės =============== */
@@ -1152,21 +1154,19 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
 }
 .si-head p{ font-size:18px; line-height:1.6; color:var(--body); max-width:830px; margin:16px auto 0; }
 
-/* =============== 5. TECHNOLOGIJOS — 2×2, spaudžiamos kortelės =============== */
+/* =============== 5. TECHNOLOGIJOS — 2×2, kortelė atidaro modalą =============== */
 .si-tgrid{
   display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
   max-width:940px; margin:0 auto;
 }
 .si-tcard{
-  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
-  overflow:hidden; transition:border-color .18s ease, box-shadow .18s ease;
-}
-.si-tcard:hover{ border-color:#C2D3E4; box-shadow:0 12px 28px -20px rgba(11,42,74,.55); }
-.si-tbtn{
   display:flex; align-items:flex-start; gap:18px; width:100%;
-  background:none; border:0; cursor:pointer; text-align:left;
-  padding:22px 20px 22px 18px; font-family:inherit;
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:22px 20px 22px 18px; cursor:pointer; text-align:left;
+  font-family:inherit; -webkit-appearance:none; appearance:none;
+  transition:border-color .18s ease, box-shadow .18s ease;
 }
+.si-tcard:hover{ border-color:#C2D3E3; box-shadow:0 16px 34px -24px rgba(11,42,74,.55); }
 .si-tfig{ flex:0 0 92px; width:92px; margin:0; display:flex; align-items:center; justify-content:center; }
 .si-tfig img{ width:100%; height:auto; }
 .si-tph{ display:none; width:54px; height:54px; color:#B9C8D8; }
@@ -1175,10 +1175,17 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
 .si-tbody{ flex:1; min-width:0; }
 .si-tbody h3{ font-size:17.5px; font-weight:700; color:var(--head-blue); margin:0 0 8px; }
 .si-tbody p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
-.si-chev{ width:18px; height:18px; color:var(--head-blue); margin-top:4px; transition:transform .2s ease; }
-.si-tbtn[aria-expanded="true"] .si-chev{ transform:rotate(180deg); }
-.si-texp{ border-top:1px solid var(--si-line); padding:18px 20px 22px; }
-.si-texp p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
+.si-tchev{ width:16px; height:16px; color:var(--head-blue); margin-top:6px; transition:transform .18s ease; }
+.si-tcard:hover .si-tchev{ transform:translateX(3px); }
+
+/* modalo turinys — naudoja tas pačias .bm-* klases kaip rent puslapis */
+.bm-body.one{ grid-template-columns:1fr; }
+.bm-body.one .bm-left{ padding:28px 30px 32px; }
+.bm-fig{ margin:0 0 22px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(160deg,#EDF2F8,#DEE7F0); border-radius:8px;
+  padding-top:26px; padding-bottom:26px; }
+.bm-fig img{ max-width:200px; height:auto; }
+.bm-fig svg{ width:96px; height:96px; color:#9EB3C8; }
 
 /* =============== 6. PRAMONĖS ŠAKOS =============== */
 .si-igrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
@@ -1187,7 +1194,7 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   background:var(--si-mist); border-radius:var(--r-card); padding:24px 22px 26px;
 }
 .si-iic{ display:inline-flex; color:var(--head-blue); }
-.si-iic svg{ width:34px; height:34px; }
+.si-iic svg{ width:44px; height:44px; }
 .si-icard h3{ font-size:17.5px; font-weight:700; line-height:1.3; color:var(--head-blue); margin:0 0 12px; }
 .si-icard ul{ list-style:none; margin:0; padding:0; }
 .si-icard li{

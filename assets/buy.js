@@ -49,7 +49,7 @@
           '<div class="u-chips">' + it.chips.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>' +
           '<p class="u-serviced">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' +
-            'CE &amp; EMC certified · delivered by Bluepower</p>' +
+            'CE &amp; EMC certified · delivered by BluePower</p>' +
           '<div class="u-foot">' + priceHTML(it) +
             '<span class="u-open">Details &amp; enquiry' +
               '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>' +
@@ -215,7 +215,7 @@
          body: JSON.stringify(data) });
      ========================================================= */
   function sendEnquiry(data) {
-    console.log('[Bluepower] Pirkimo uzklausa (dar nesiunciama):', data);
+    console.log('[BluePower] Pirkimo uzklausa (dar nesiunciama):', data);
   }
 
   /* ---------- paleidimas ---------- */

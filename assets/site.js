@@ -71,8 +71,10 @@
     contactUs:  { en: 'Contact Us',           no: 'Kontakt oss' },
     region:     { en: 'Norway · Nordics · EU', no: 'Norge · Norden · EU' },
     org:        { en: 'Org. no. 927159260',   no: 'Org.nr. 927159260' },
-    rights:     { en: '© 2026 Bluepower AS. All rights reserved.',
-                  no: '© 2026 Bluepower AS. Alle rettigheter reservert.' },
+    /* Footer'yje — oficialus registro pavadinimas (Brønnøysund: BLUEPOWER AS),
+       ne prekės ženklo rašyba „BluePower". */
+    rights:     { en: '© 2026 BLUEPOWER AS. All rights reserved.',
+                  no: '© 2026 BLUEPOWER AS. Alle rettigheter reservert.' },
     terms:      { en: 'Terms',                no: 'Brukervilkår' },
     privacy:    { en: 'Privacy',              no: 'Personvern' }
   };
@@ -157,8 +159,8 @@
     return '' +
     '<header class="hdr" id="hdr">' +
       '<div class="brand-wrap">' +
-        '<button class="brand" id="brandBtn" aria-expanded="false" aria-haspopup="true" aria-label="Bluepower">' +
-          '<span class="wm"><img src="assets/logo.png" alt="Bluepower"></span>' +
+        '<button class="brand" id="brandBtn" aria-expanded="false" aria-haspopup="true" aria-label="BluePower">' +
+          '<span class="wm"><img src="assets/logo.png" alt="BluePower"></span>' +
           svg(ICON.chev, 2).replace('<svg', '<svg class="chev"') +
         '</button>' +
         '<div class="vdrop" id="vdrop">' + divHtml +
@@ -194,7 +196,7 @@
     '<footer class="ftr">' +
       '<div class="ftr-grid">' +
         '<div>' +
-          '<span class="wm"><img src="assets/logo.png" alt="Bluepower"></span>' +
+          '<span class="wm"><img src="assets/logo.png" alt="BluePower"></span>' +
           '<p class="tag">Keep it simple.</p>' +
           '<div class="meta">' + svg(ICON.globe) +
             '<span data-no="' + T.region.no + '">' + T.region.en + '</span></div>' +

@@ -430,7 +430,7 @@
      Visi laukai jau surinkti į `data`.
      ========================================================= */
   function sendBooking(data) {
-    console.log('[Bluepower] Rezervacijos užklausa (dar nesiunčiama):', data);
+    console.log('[BluePower] Rezervacijos užklausa (dar nesiunčiama):', data);
   }
 
   /* ---------- paleidimas ---------- */
