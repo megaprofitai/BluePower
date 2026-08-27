@@ -752,7 +752,7 @@ body.locked{ overflow:hidden; }
 .sell-hero{ background:var(--mist); padding:70px var(--pad) 8px; text-align:center; }
 .sell-hero h1{
   font-size:52px;font-weight:800;letter-spacing:-.02em;line-height:1.08;
-  color:var(--navy-text);margin:0 0 16px;
+  color:var(--head-blue);margin:0 0 16px;
 }
 .sell-hero p{
   font-size:18px;line-height:1.6;color:var(--body);
@@ -842,9 +842,23 @@ body.locked{ overflow:hidden; }
 }
 .sl-prev{ max-width:380px;margin:0 auto 30px;text-align:left;cursor:default; }
 .sl-prev:hover{ border-color:var(--line);box-shadow:none; }
-.sl-prev .u-art{ padding:0;height:190px;overflow:hidden;
+.sl-prev .u-art{ padding:0;height:210px;overflow:hidden;background:#fff;
   display:flex;align-items:center;justify-content:center; }
-.sl-prev .u-art img{ width:100%;height:100%;object-fit:cover; }
+/* contain, ne cover — kad nenukirstu irenginio krastu */
+.sl-prev .u-art img{ width:100%;height:100%;object-fit:contain;padding:10px; }
+
+/* nuotrauku karusele */
+.sl-nav{ position:absolute;top:50%;transform:translateY(-50%);z-index:3;
+  width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(255,255,255,.94);color:var(--navy-text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;padding:0;
+  box-shadow:0 2px 8px rgba(6,19,39,.16);transition:background-color .16s ease; }
+.sl-nav:hover{ background:#fff;color:var(--head-blue); }
+.sl-prev-btn{ left:8px; }
+.sl-next-btn{ right:8px; }
+.sl-count{ position:absolute;right:8px;bottom:8px;z-index:3;
+  background:rgba(6,19,39,.72);color:#fff;border-radius:20px;
+  padding:3px 9px;font-size:11px;font-weight:600;letter-spacing:.02em; }
 .sl-empty{ display:flex;flex-direction:column;align-items:center;gap:8px;
   color:#93A6BB;font-size:12.5px; }
 .sl-prev .u-body{ padding:17px 18px 18px; }
@@ -924,24 +938,30 @@ body.locked{ overflow:hidden; }
 /* =========================================================
    CONTACT
    ========================================================= */
-.ct-emg{ background:var(--navy-panel);padding:38px var(--pad);
+.ct-emg{ background:var(--mist);border-bottom:1px solid var(--line);
+  padding:38px var(--pad);
   --pad:max(28px,calc((100vw - 1280px)/2)); }
 .ct-emg-in{ display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap; }
-.ct-emg-txt h1{ color:#fff;font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px; }
-.ct-emg-txt p{ color:rgba(255,255,255,.8);font-size:16px;margin:0; }
-.ct-emg-act{ display:flex;align-items:center;gap:14px;flex-wrap:wrap; }
+.ct-emg-txt h1{ color:var(--head-blue);font-size:32px;font-weight:800;letter-spacing:-.02em;margin:0 0 6px; }
+.ct-emg-txt p{ color:var(--body);font-size:16px;margin:0; }
+/* position:relative — kad „Copied" zenkliukas nestumdytu mygtuko */
+.ct-emg-act{ position:relative;display:flex;align-items:center; }
 .ct-call{ display:inline-flex;align-items:center;gap:11px;text-decoration:none;
   background:var(--orange);color:#fff;border-radius:8px;padding:13px 22px;
   font-family:var(--font-display);font-size:14.5px;font-weight:700;letter-spacing:.04em;
-  box-shadow:0 6px 18px -6px rgba(0,0,0,.45);transition:filter .16s ease; }
+  box-shadow:0 6px 18px -6px rgba(6,19,39,.3);transition:filter .16s ease; }
 .ct-call:hover{ filter:brightness(1.07); }
-.ct-call b{ font-weight:700;padding-left:11px;border-left:1px solid rgba(255,255,255,.34);
-  letter-spacing:.02em; }
-.ct-copied{ font-size:13px;color:#8FD3B4; }
+.ct-copied{ position:absolute;top:100%;left:0;margin-top:9px;
+  display:inline-flex;align-items:center;gap:6px;
+  background:#EEF4FA;border:1px solid #BBD3EA;border-radius:20px;padding:4px 11px;
+  font-size:12.5px;font-weight:600;color:var(--head-blue);white-space:nowrap;
+  animation:ctFade .18s ease-out; }
+@keyframes ctFade{ from{opacity:0;transform:translateY(-3px);} to{opacity:1;transform:none;} }
 
-.ct-stage{ background:var(--mist);padding-top:44px;padding-bottom:66px;
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:46px;align-items:start; }
-.ct-info h2{ font-size:36px;font-weight:800;letter-spacing:-.02em;color:var(--navy-text);margin:0 0 14px; }
+.ct-stage{ background:var(--mist);padding-top:48px;padding-bottom:70px;
+  --pad:28px;max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:48px;align-items:start; }
+.ct-info h2{ font-size:42px;font-weight:800;letter-spacing:-.02em;color:var(--head-blue);margin:0 0 14px; }
 .ct-sub{ font-size:16.5px;line-height:1.65;color:var(--body);margin:0 0 26px;max-width:460px; }
 .ct-direct{ list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px; }
 .ct-direct li a,.ct-direct li span{ display:inline-flex;align-items:center;gap:11px;
@@ -992,3 +1012,7 @@ body.locked{ overflow:hidden; }
   .ct-switch{ grid-template-columns:1fr; }
   .pt-plate{ height:110px; }
 }
+
+/* Country laukas (International) — be paieskos ikonos */
+.sl-f.is-plain .ct-search svg{ display:none; }
+.sl-f.is-plain .ct-search input{ padding-left:12px !important; }

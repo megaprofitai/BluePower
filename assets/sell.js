@@ -47,6 +47,7 @@
                no: 'Vennligst huk av boksen så vi kan kontakte deg.' },
 
     photos:  { en: 'photos',                       no: 'bilder' },
+    of:      { en: 'of',                           no: 'av' },
 
     new:     { en: 'New',             no: 'Ny' },
     likenew: { en: 'Used – like new', no: 'Brukt – som ny' },
@@ -64,7 +65,7 @@
   /* ---------- busena ---------- */
   var S = blank();
   function blank() {
-    return { step: 1, type: '', make: '', year: '', cond: '', loc: '', photos: [],
+    return { step: 1, type: '', make: '', year: '', cond: '', loc: '', photos: [], pi: 0,
              nm: '', co: '', em: '', ph: '', msg: '', consent: false };
   }
 
@@ -202,10 +203,7 @@
       badge.querySelector('span').textContent = t(S.cond);
     } else { badge.hidden = true; }
 
-    var img = q('#pvImg'), empty = q('#pvEmpty');
-    empty.querySelector('span').textContent = t('pvEmpty');
-    if (S.photos.length) { img.src = S.photos[0].url; img.hidden = false; empty.hidden = true; }
-    else { img.hidden = true; empty.hidden = false; }
+    renderPhoto();
 
     var chips = [];
     if (S.year.trim()) chips.push(S.year.trim());
@@ -224,6 +222,41 @@
              '<span>' + t('nx' + i + 'd') + '</span></div></li>';
     }).join('');
   }
+
+  /* --- nuotrauku karusele rezultato korteleje --- */
+  function renderPhoto() {
+    var img = q('#pvImg'), empty = q('#pvEmpty');
+    var prev = q('#pvPrev'), next = q('#pvNext'), count = q('#pvCount');
+    var n = S.photos.length;
+
+    empty.querySelector('span').textContent = t('pvEmpty');
+
+    if (!n) {
+      img.hidden = true; empty.hidden = false;
+      prev.hidden = next.hidden = count.hidden = true;
+      return;
+    }
+    if (S.pi >= n) S.pi = 0;
+    if (S.pi < 0) S.pi = n - 1;
+
+    img.src = S.photos[S.pi].url;
+    img.hidden = false;
+    empty.hidden = true;
+
+    var many = n > 1;
+    prev.hidden = next.hidden = count.hidden = !many;
+    if (many) count.textContent = (S.pi + 1) + ' ' + t('of') + ' ' + n;
+  }
+
+  q('#pvPrev').addEventListener('click', function () { S.pi--; renderPhoto(); });
+  q('#pvNext').addEventListener('click', function () { S.pi++; renderPhoto(); });
+
+  /* rodyklems veikia ir klaviatura, kai kortele matoma */
+  document.addEventListener('keydown', function (e) {
+    if (S.step !== 4 || S.photos.length < 2) return;
+    if (e.key === 'ArrowLeft')  { S.pi--; renderPhoto(); }
+    if (e.key === 'ArrowRight') { S.pi++; renderPhoto(); }
+  });
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, function (c) {
@@ -253,6 +286,7 @@
       details: S.msg, consent: S.consent, lang: lang
     });
 
+    S.pi = 0;
     renderResult();
     paintRef();
     goto(4);

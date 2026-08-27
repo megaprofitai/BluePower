@@ -24,13 +24,18 @@
     ref:     { en: 'Reference: ', no: 'Referanse: ' },
     none:    { en: 'No companies found', no: 'Ingen firmaer funnet' },
     offline: { en: 'Company search is unavailable — just type the name.',
-               no: 'Firmasøk er utilgjengelig — skriv navnet manuelt.' }
+               no: 'Firmasøk er utilgjengelig — skriv navnet manuelt.' },
+    coLbl:   { en: 'Company in Brønnøysund', no: 'Firma i Brønnøysundregisteret' },
+    coPh:    { en: 'Search company',         no: 'Søk etter firma' },
+    ctLbl:   { en: 'Country',                no: 'Land' },
+    ctPh:    { en: 'e.g. Germany',           no: 'f.eks. Tyskland' },
+    copied:  { en: 'Copied',                 no: 'Kopiert' }
   };
   function t(k) { return T[k][lang]; }
 
   var q = function (s) { return document.querySelector(s); };
 
-  var S = { loc: 'no', reason: 'rent', other: '', co: '', orgnr: '',
+  var S = { loc: 'no', reason: 'rent', other: '', co: '', orgnr: '', country: '',
             nm: '', role: '', ph: '', em: '', msg: '' };
 
   /* ---------- laukai ---------- */
@@ -45,9 +50,7 @@
       [].forEach.call(document.querySelectorAll('.ct-opt'), function (x) { x.classList.remove('is-on'); });
       b.classList.add('is-on');
       S.loc = b.getAttribute('data-loc');
-      /* Bronoysundo registras yra tik norvegiskoms imonems */
-      q('#coWrap').hidden = (S.loc !== 'no');
-      if (S.loc !== 'no') { S.orgnr = ''; hideResults(); }
+      applyLocField();
     });
   });
 
@@ -57,12 +60,26 @@
     q('#otherWrap').hidden = (S.reason !== 'other');
   });
 
+  /* Norge -> Bronoysundo registro paieska; International -> paprastas salies laukas.
+     Registras yra tik norvegiskoms imonems, todel uzsienyje jo rodyti nera prasmes. */
+  function applyLocField() {
+    var isNo = (S.loc === 'no');
+    var wrap = q('#coWrap');
+    wrap.classList.toggle('is-plain', !isNo);
+    wrap.querySelector('span').textContent = isNo ? t('coLbl') : t('ctLbl');
+    coInput.placeholder = isNo ? t('coPh') : t('ctPh');
+    coInput.value = isNo ? S.co : S.country;
+    if (!isNo) { S.orgnr = ''; }
+    hideResults();
+  }
+
   /* =========================================================
      Bronoysundo registro paieska (tikri duomenys)
      ========================================================= */
   var coInput = q('[name=co]'), results = q('#coResults'), timer = null;
 
   coInput.addEventListener('input', function () {
+    if (S.loc !== 'no') { S.country = coInput.value; return; }
     S.co = coInput.value; S.orgnr = '';
     clearTimeout(timer);
     var term = coInput.value.trim();
@@ -128,7 +145,7 @@
     var ref = 'BP-C-2026-' + String(Math.floor(1000 + Math.random() * 9000));
     sendEnquiry({
       ref: ref, location: S.loc, reason: S.reason, otherReason: S.other,
-      company: S.co, orgnr: S.orgnr, name: S.nm, role: S.role,
+      company: S.co, orgnr: S.orgnr, country: S.country, name: S.nm, role: S.role,
       phone: S.ph, email: S.em, message: S.msg, lang: lang
     });
 
@@ -159,6 +176,7 @@
       e.preventDefault();
       var num = '+47 951 69 552';
       var done = function () {
+        copied.querySelector('span').textContent = t('copied');
         copied.hidden = false;
         clearTimeout(callBtn._t);
         callBtn._t = setTimeout(function () { copied.hidden = true; }, 2200);
@@ -189,10 +207,11 @@
     langBtn.addEventListener('click', function () {
       lang = (lang === 'en') ? 'no' : 'en';
       applyPh();
-      hideResults();
+      applyLocField();
       if (!q('#ctOk').hidden) q('#ctRef').textContent = t('ref') + q('#ctRef').textContent.split(': ').pop();
     });
   }
 
   applyPh();
+  applyLocField();
 })();
