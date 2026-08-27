@@ -140,14 +140,25 @@
         <!-- sugeneruotas skelbimas -->
         <p class="sl-cap" id="pvHead"></p>
         <article class="u-card sl-prev">
-          <div class="u-art">
+          <div class="u-art sl-art">
             <span class="u-badge" id="pvBadge" hidden><i></i><span></span></span>
+
             <div class="sl-empty" id="pvEmpty">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m4 17 5-5 4 4 3-2 4 4"/></svg>
               <span></span>
             </div>
+
             <img id="pvImg" alt="" hidden>
+
+            <button type="button" class="sl-nav sl-prev-btn" id="pvPrev" hidden aria-label="Previous photo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button type="button" class="sl-nav sl-next-btn" id="pvNext" hidden aria-label="Next photo">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+            <span class="sl-count" id="pvCount" hidden></span>
           </div>
+
           <div class="u-body">
             <h3 id="pvName">—</h3>
             <p class="u-tag" id="pvType">—</p>
