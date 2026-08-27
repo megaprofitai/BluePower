@@ -1160,32 +1160,54 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   max-width:940px; margin:0 auto;
 }
 .si-tcard{
-  display:flex; align-items:flex-start; gap:18px; width:100%;
+  display:flex; flex-direction:column; width:100%; padding:0; overflow:hidden;
   background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
-  padding:22px 20px 22px 18px; cursor:pointer; text-align:left;
-  font-family:inherit; -webkit-appearance:none; appearance:none;
+  cursor:pointer; text-align:left; font-family:inherit;
+  -webkit-appearance:none; appearance:none;
   transition:border-color .18s ease, box-shadow .18s ease;
 }
 .si-tcard:hover{ border-color:#C2D3E3; box-shadow:0 16px 34px -24px rgba(11,42,74,.55); }
-.si-tfig{ flex:0 0 92px; width:92px; margin:0; display:flex; align-items:center; justify-content:center; }
-.si-tfig img{ width:100%; height:auto; }
-.si-tph{ display:none; width:54px; height:54px; color:#B9C8D8; }
-.si-tfig.is-empty img{ display:none; }
-.si-tfig.is-empty .si-tph{ display:block; }
-.si-tbody{ flex:1; min-width:0; }
+.si-tfig{
+  margin:0; height:210px; width:100%;
+  background:linear-gradient(160deg,#EDF2F8,#DEE7F0);
+  display:flex; align-items:center; justify-content:center;
+  padding-top:16px; padding-bottom:16px;
+}
+.si-tfig img{ max-height:178px; max-width:82%; width:auto; object-fit:contain; }
+.si-tbody{ padding:20px 22px 22px; }
 .si-tbody h3{ font-size:17.5px; font-weight:700; color:var(--head-blue); margin:0 0 8px; }
-.si-tbody p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
-.si-tchev{ width:16px; height:16px; color:var(--head-blue); margin-top:6px; transition:transform .18s ease; }
-.si-tcard:hover .si-tchev{ transform:translateX(3px); }
+.si-tbody p{ font-size:14px; line-height:1.6; color:var(--body); margin:0 0 14px; }
+.si-topen{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-display); font-size:13.5px; font-weight:700; color:var(--head-blue);
+}
+.si-topen svg{ width:15px; height:15px; transition:transform .18s ease; }
+.si-tcard:hover .si-topen svg{ transform:translateX(3px); }
 
-/* modalo turinys — naudoja tas pačias .bm-* klases kaip rent puslapis */
+/* --- modalas: naudoja tas pačias .bm-* klases kaip rent puslapis --- */
 .bm-body.one{ grid-template-columns:1fr; }
-.bm-body.one .bm-left{ padding:28px 30px 32px; }
-.bm-fig{ margin:0 0 22px; display:flex; align-items:center; justify-content:center;
+.bm-body.one .bm-left{ padding:26px 30px 32px; }
+.bm-fig{
+  margin:0 0 24px; display:flex; align-items:center; justify-content:center;
   background:linear-gradient(160deg,#EDF2F8,#DEE7F0); border-radius:8px;
-  padding-top:26px; padding-bottom:26px; }
-.bm-fig img{ max-width:200px; height:auto; }
-.bm-fig svg{ width:96px; height:96px; color:#9EB3C8; }
+  padding-top:22px; padding-bottom:22px;
+}
+.bm-fig img{ max-height:340px; max-width:80%; width:auto; }
+.bm-fig svg.o2{ width:100%; max-width:720px; height:auto; }
+.bm-list{ list-style:none; margin:0; padding:0; }
+.bm-list li{
+  position:relative; padding-left:26px; margin-bottom:11px;
+  font-size:14.5px; line-height:1.6; color:var(--navy-text);
+}
+.bm-list li::before{
+  content:""; position:absolute; left:2px; top:8px;
+  width:8px; height:8px; border-radius:50%; background:var(--head-blue);
+}
+
+/* --- animuotas O2 srauto piešinys --- */
+.o2 .flow{ stroke-dasharray:9 11; animation:o2dash 1.6s linear infinite; }
+@keyframes o2dash{ to{ stroke-dashoffset:-40; } }
+@media (prefers-reduced-motion:reduce){ .o2 .flow{ animation:none; } }
 
 /* =============== 6. PRAMONĖS ŠAKOS =============== */
 .si-igrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
