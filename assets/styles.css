@@ -1186,10 +1186,13 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
 
 /* --- modalas: tos pačios .bm-* klasės kaip rent, bet siauresnis ir be slinkimo --- */
 .bm.bm-tech{ width:min(860px,100%); }
-.bm.bm-tech.is-wide{ width:min(940px,100%); }
+.bm.bm-tech.is-wide{ width:min(820px,100%); }
 .bm-body.one{ grid-template-columns:1fr; overflow:visible; }
+/* overflow:auto — atsarginis variantas. Dydžiai suderinti taip, kad
+   įprastame ekrane slinkimo nebūtų; jis įsijungia tik labai žemame lange,
+   kad turinys niekada nebūtų nukirstas (.bm turi overflow:hidden). */
 .bm-body.one .bm-left{
-  padding:26px 30px 30px; overflow:visible;
+  padding:26px 30px 30px; overflow:auto;
   display:grid; grid-template-columns:290px 1fr; gap:30px; align-items:start;
 }
 /* plati schema (O2) — vienas stulpelis per visą plotį */
@@ -1201,9 +1204,10 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   padding:18px;
 }
 .bm-fig img{ max-height:min(430px,52vh); max-width:100%; width:auto; }
-.bm-tech.is-wide .bm-fig{ margin-bottom:22px; padding-top:14px; padding-bottom:14px; }
-.bm-tech.is-wide .bm-fig img{ max-height:min(400px,46vh); }
-.bm-fig svg.o2{ width:100%; max-width:760px; height:auto; }
+.bm-tech.is-wide .bm-fig{ margin-bottom:20px; padding:12px; }
+.bm-tech.is-wide .bm-fig img{ max-height:min(360px,40vh); }
+/* SVG proporcija 750:446 → aukštį ribojam per plotį, kitaip liktų tuščios juostos */
+.bm-fig svg.o2{ width:100%; max-width:min(100%,62vh); height:auto; }
 
 .bm-body.one .bm-desc{ margin:0 0 18px; font-size:15px; }
 .bm-list{ list-style:none; margin:0; padding:0; }
