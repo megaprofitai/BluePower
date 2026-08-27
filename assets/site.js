@@ -155,7 +155,7 @@
     }).join('');
 
     return '' +
-    '<header class="hdr' + (isSilo ? ' hdr--silo is-top' : '') + '" id="hdr">' +
+    '<header class="hdr" id="hdr">' +
       '<div class="brand-wrap">' +
         '<button class="brand" id="brandBtn" aria-expanded="false" aria-haspopup="true" aria-label="Bluepower">' +
           '<span class="wm"><img src="assets/logo.png" alt="Bluepower"></span>' +
@@ -253,16 +253,6 @@
           brandBtn.setAttribute('aria-expanded', 'false');
         }
       });
-    }
-
-    /* Silo antraštė permatoma tik puslapio viršuje, paslinkus — vientisa */
-    var hdr = document.getElementById('hdr');
-    if (hdr && hdr.classList.contains('hdr--silo')) {
-      var onScroll = function () {
-        hdr.classList.toggle('is-top', (window.pageYOffset || 0) < 8);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
     }
 
     var langBtn = document.getElementById('langBtn');
