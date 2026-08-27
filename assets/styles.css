@@ -1024,3 +1024,303 @@ body.locked{ overflow:hidden; }
 /* Country laukas (International) — be paieskos ikonos */
 .sl-f.is-plain .ct-search svg{ display:none; }
 .sl-f.is-plain .ct-search input{ padding-left:12px !important; }
+
+/* =========================================================
+   SILO CLEANING — /en/silo   (prefiksas .si-)
+   Spalvos ir geometrija išsamplintos iš originalo screenshot'ų
+   (1920 px @125 % → dalinta iš 1.25).
+   Konteineris čia SIAURESNIS nei water pusėje: 1336 px vietoj 1360.
+   ========================================================= */
+body[data-page="silo"]{
+  --pad: max(24px, calc((100vw - 1336px) / 2));
+  --si-mist:#F4F7FA;      /* problema, technologijos, geografija, naujienos */
+  --si-ice:#EEF3FB;       /* metodo sekcija — NAUJA, šviesesnė ir mėlynesnė */
+  --si-line:#E2E9F1;
+}
+body[data-page="silo"] #problem,
+body[data-page="silo"] #how,
+body[data-page="silo"] #technology,
+body[data-page="silo"] #gain,
+body[data-page="silo"] #news,
+body[data-page="silo"] #faq{ scroll-margin-top:70px; }
+
+/* ---------- antraštė: silo turi SAVO meniu ir „Request Help" ---------- */
+.hdr--silo{ height:63px; background:var(--navy-panel); transition:background-color .22s ease; }
+.hdr--silo.is-top{ background:transparent; }      /* viršuje permatoma — matosi hero nuotrauka */
+.hdr--silo .nav{ gap:28px; }
+.hdr--silo .nav a{
+  font-size:16px; font-weight:600; letter-spacing:0; text-transform:none;
+}
+.hdr--silo .wm img{ height:26px; }
+.hbtn{
+  display:inline-flex; align-items:center; justify-content:center;
+  height:34px; padding:0 16px; border:1px solid rgba(255,255,255,.5); border-radius:var(--r);
+  color:#fff; font-family:var(--font-display); font-weight:600; font-size:14px;
+  white-space:nowrap; transition:background-color .18s ease;
+}
+.hbtn:hover{ background:rgba(255,255,255,.12); }
+
+/* ---------- bendra juosta ---------- */
+.si-band{ padding-top:72px; padding-bottom:88px; }
+.si-problem{ background:var(--si-mist); }
+.si-method { background:var(--si-ice);  }
+.si-gain   { background:var(--navy-panel); }
+.si-tech   { background:var(--si-mist); }
+.si-ind    { background:#fff; }
+.si-cov    { background:var(--si-mist); padding-bottom:64px; }
+.si-news   { background:var(--si-mist); padding-top:56px; }
+.si-ctaband{ background:var(--si-mist); padding-top:40px; padding-bottom:72px; }
+.si-faq    { background:#fff; }
+
+/* =============== 1. HERO =============== */
+.si-hero{
+  position:relative; min-height:636px; margin-top:-63px;
+  display:flex; align-items:center; overflow:hidden;
+}
+.si-hero-bg{ position:absolute; inset:0; background:#0B2A4A; }
+.si-hero-bg img{ width:100%; height:100%; object-fit:cover; }
+.si-hero-bg::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(100deg,rgba(8,26,45,.88) 0%,rgba(9,29,49,.78) 42%,rgba(12,36,58,.55) 100%);
+}
+.si-hero-in{ position:relative; z-index:2; width:100%; padding-top:126px; padding-bottom:46px; }
+.si-hero h1{
+  color:#fff; font-weight:800; font-size:60px; line-height:1.1;
+  letter-spacing:-.02em; margin:0 0 26px; max-width:790px;
+}
+.si-hero h1 .dot{ color:var(--orange); }
+.si-lead{
+  color:rgba(255,255,255,.86); font-size:18px; line-height:1.6;
+  max-width:600px; margin:0 0 34px;
+}
+.si-hero-cta{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:44px; }
+.si-hero-cta .btn{ padding:15px 26px; font-size:16px; font-weight:600; }
+.si-btn-glass{
+  background:rgba(255,255,255,.12); color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(4px);
+}
+.si-btn-glass:hover{ background:rgba(255,255,255,.2); }
+
+.si-chips{ display:flex; flex-wrap:wrap; gap:14px; list-style:none; margin:0; padding:0; }
+.si-chips li{
+  display:inline-flex; align-items:center; gap:10px;
+  height:40px; padding:0 20px; border-radius:999px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.22);
+  color:rgba(255,255,255,.92); font-size:14px; font-weight:500;
+  backdrop-filter:blur(3px);
+}
+.si-chips svg{ width:16px; height:16px; color:var(--orange-soft); }
+
+/* =============== bendras „split" tinklelis =============== */
+.si-split{ display:grid; grid-template-columns:380px 1fr; gap:76px; align-items:start; }
+.si-split-h{ padding-left:24px; }
+.si-split-h h2{
+  font-size:30px; font-weight:800; line-height:1.32; letter-spacing:-.01em;
+  color:var(--head-blue); margin:0;
+}
+.si-split-h p{ font-size:15px; line-height:1.7; color:var(--body); margin:22px 0 0; }
+.si-gain .si-split-h h2{ color:#fff; }
+
+/* keturios stulpelinės kortelės (problema + nauda) */
+.si-cols{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.si-col{ text-align:center; }
+.si-ic{ display:inline-flex; color:var(--head-blue); margin-bottom:18px; }
+.si-ic svg{ width:44px; height:44px; }
+.si-col h3{
+  font-size:16px; font-weight:700; line-height:1.35; color:var(--navy-text);
+  margin:0 0 14px;
+}
+.si-col p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
+.si-gain .si-ic{ color:#fff; }
+.si-gain .si-col h3{ color:#fff; }
+.si-gain .si-col p{ color:rgba(255,255,255,.82); }
+
+/* =============== 3. METODAS — trys kortelės =============== */
+.si-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.si-step{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:24px 22px 30px; text-align:center;
+}
+.si-step-t{ display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:26px; }
+.si-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:28px; height:28px; border-radius:50%; background:var(--navy-panel);
+  color:#fff; font-size:13px; font-weight:700;
+}
+.si-step-t span:last-child{
+  font-size:15px; font-weight:700; letter-spacing:.055em; text-transform:uppercase;
+  color:var(--navy-text);
+}
+.si-step-ic{ display:inline-flex; color:var(--head-blue); margin-bottom:24px; }
+.si-step-ic svg{ width:52px; height:52px; }
+.si-step p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
+
+/* =============== centruotos sekcijų antraštės =============== */
+.si-head{ text-align:center; margin-bottom:44px; }
+.si-head h2{
+  font-size:34px; font-weight:800; line-height:1.2; letter-spacing:-.01em;
+  color:var(--head-blue); margin:0;
+}
+.si-head p{
+  font-size:18px; line-height:1.55; color:var(--body);
+  max-width:830px; margin:16px auto 0;
+}
+
+/* =============== 5. TECHNOLOGIJOS =============== */
+.si-tgrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:27px; }
+.si-tcard{
+  display:flex; align-items:flex-start; gap:18px;
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:22px 24px 22px 20px;
+}
+.si-tfig{
+  flex:0 0 96px; width:96px; margin:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.si-tfig img{ width:100%; height:auto; }
+.si-tph{ display:none; width:56px; height:56px; color:#B9C8D8; }
+.si-tfig.is-empty img{ display:none; }
+.si-tfig.is-empty .si-tph{ display:block; }
+.si-tbody{ flex:1; min-width:0; }
+.si-tbody h3{ font-size:17px; font-weight:700; color:var(--head-blue); margin:0 0 10px; }
+.si-tbody p{ font-size:14px; line-height:1.6; color:var(--body); margin:0 0 14px; }
+.si-more{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:14px; font-weight:600; color:var(--orange);
+}
+.si-more svg{ width:14px; height:14px; transition:transform .18s ease; }
+.si-more:hover svg{ transform:translateX(3px); }
+
+/* =============== 6. PRAMONĖS ŠAKOS =============== */
+.si-igrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.si-icard{
+  display:flex; align-items:flex-start; gap:16px;
+  background:var(--si-mist); border-radius:var(--r-card); padding:24px 22px 26px;
+}
+.si-iic{ display:inline-flex; color:var(--head-blue); }
+.si-iic svg{ width:34px; height:34px; }
+.si-icard h3{ font-size:17px; font-weight:700; line-height:1.3; color:var(--head-blue); margin:0 0 12px; }
+.si-icard ul{ list-style:none; margin:0; padding:0; }
+.si-icard li{
+  position:relative; padding-left:14px; font-size:14px; line-height:1.55;
+  color:var(--navy-text); margin-bottom:4px;
+}
+.si-icard li::before{ content:"•"; position:absolute; left:0; color:var(--navy-text); }
+
+/* =============== 7. GEOGRAFIJA =============== */
+.si-cov{ text-align:center; }
+.si-cov-h{
+  font-size:34px; font-weight:800; line-height:1.22; letter-spacing:-.01em;
+  color:var(--head-blue); margin:0 0 28px;
+}
+.si-pills{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; list-style:none; margin:0 0 26px; padding:0; }
+.si-pills li{
+  display:inline-flex; align-items:center; height:36px; padding:0 20px;
+  border:1px solid var(--si-line); border-radius:999px; background:#fff;
+  font-size:14px; font-weight:500; color:var(--navy-text);
+}
+.si-cov-hint{ font-size:15px; color:var(--body); margin:0 0 26px; }
+.si-cov-btn{
+  display:inline-flex; align-items:center; gap:10px;
+  height:44px; padding:0 26px; border:1px solid var(--si-line); border-radius:999px;
+  background:#fff; cursor:pointer; color:var(--navy-text);
+  font-family:var(--font-display); font-size:15px; font-weight:600;
+  transition:border-color .18s ease;
+}
+.si-cov-btn:hover{ border-color:var(--head-blue); }
+.si-cov-btn svg{ width:16px; height:16px; transition:transform .2s ease; }
+.si-cov-btn[aria-expanded="true"] svg{ transform:rotate(180deg); }
+.si-cov-map{
+  margin-top:26px; border:1px dashed var(--si-line); border-radius:var(--r-card);
+  background:#fff; padding:40px 20px;
+}
+.si-todo{ margin:0; font-size:14px; color:var(--body); }
+
+/* =============== 8. NAUJIENOS =============== */
+.si-ngrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:27px; }
+.si-ncard{
+  display:block; background:#fff; border:1px solid var(--si-line);
+  border-radius:var(--r-card); padding:26px 24px 30px;
+  transition:border-color .18s ease, box-shadow .18s ease;
+}
+.si-ncard:hover{ border-color:#C9D8E7; box-shadow:0 10px 26px -18px rgba(11,42,74,.5); }
+.si-ndate{ display:block; font-size:14px; color:var(--body); margin-bottom:12px; }
+.si-ncard h3{ font-size:16px; font-weight:700; line-height:1.35; color:var(--navy-text); margin:0 0 12px; }
+.si-ncard p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
+.si-allnews{
+  display:flex; align-items:center; justify-content:center; gap:9px;
+  margin-top:32px; font-size:15px; font-weight:600; color:var(--head-blue);
+}
+.si-allnews svg{ width:15px; height:15px; transition:transform .18s ease; }
+.si-allnews:hover svg{ transform:translateX(3px); }
+
+/* =============== 9. CTA =============== */
+.si-cta{
+  position:relative; overflow:hidden; border-radius:10px;
+  max-width:1024px; margin:0 auto; background:var(--navy-panel);
+  display:grid; grid-template-columns:1fr 300px; gap:36px; align-items:center;
+  padding:44px 40px;
+}
+.si-cta-bg{ position:absolute; inset:0; z-index:0; }
+.si-cta-bg img{ width:100%; height:100%; object-fit:cover; opacity:.5; }
+.si-cta-bg::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(95deg,rgba(11,42,74,.97) 0%,rgba(11,42,74,.88) 55%,rgba(11,42,74,.62) 100%);
+}
+.si-cta-txt,.si-cta-act{ position:relative; z-index:2; }
+.si-cta-txt h2{ font-size:30px; font-weight:800; line-height:1.24; color:#fff; margin:0 0 14px; }
+.si-cta-txt p{ font-size:15px; line-height:1.6; color:rgba(255,255,255,.85); margin:0; }
+.si-cta-act .btn{
+  display:flex; justify-content:center; width:100%;
+  text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; padding:14px 18px;
+}
+.si-cta-b1{ margin-bottom:10px; }
+.si-cta-b2{ background:#fff; color:var(--navy-text); }
+.si-cta-b2:hover{ background:#EFF3F8; }
+.si-cta-b2 svg{ color:var(--orange); }
+.si-cta-note{
+  position:relative; margin:16px 0 0 0; padding-left:16px;
+  font-size:13px; line-height:1.5; color:rgba(255,255,255,.82);
+}
+.si-cta-note::before{
+  content:""; position:absolute; left:0; top:6px;
+  width:7px; height:7px; border-radius:50%; background:var(--orange);
+}
+
+/* =============== 10. DUK =============== */
+.si-qgrid{ display:grid; grid-template-columns:1fr 1fr; gap:26px 21px; }
+.si-q{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+  min-height:51px; padding:14px 22px;
+  background:var(--si-mist); border-radius:var(--r-card);
+  font-size:15px; font-weight:600; color:var(--navy-text);
+  transition:background-color .18s ease;
+}
+.si-q:hover{ background:#E9EFF6; }
+.si-q svg{ width:17px; height:17px; color:var(--head-blue); }
+
+/* =============== RESPONSIVE =============== */
+@media (max-width:1180px){
+  .si-split{ grid-template-columns:1fr; gap:36px; }
+  .si-split-h{ padding-left:0; }
+  .si-tgrid,.si-ngrid{ grid-template-columns:repeat(2,1fr); }
+  .si-igrid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:900px){
+  .hdr--silo .nav{ display:none; }
+  .hbtn{ display:none; }
+  .si-hero h1{ font-size:38px; }
+  .si-hero-in{ padding-top:104px; }
+  .si-cols{ grid-template-columns:repeat(2,1fr); gap:34px 24px; }
+  .si-steps{ grid-template-columns:1fr; }
+  .si-cta{ grid-template-columns:1fr; padding:32px 26px; }
+  .si-cov-h,.si-head h2{ font-size:26px; }
+  .si-split-h h2{ font-size:26px; }
+}
+@media (max-width:640px){
+  .si-hero h1{ font-size:32px; }
+  .si-tgrid,.si-ngrid,.si-igrid,.si-cols,.si-qgrid{ grid-template-columns:1fr; }
+  .si-band{ padding-top:48px; padding-bottom:56px; }
+  .si-cov-h br{ display:none; }
+}

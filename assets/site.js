@@ -9,13 +9,42 @@
 (function () {
   'use strict';
 
-  /* ---------- 1. NAVIGACIJA — vienintelis šaltinis ---------- */
-  var NAV = [
-    { id: 'rent',    href: 'rent.html',    en: 'Rent',    no: 'Utleie'  },
-    { id: 'buy',     href: 'buy.html',     en: 'Buy',     no: 'Kjøp'    },
-    { id: 'sell',    href: 'sell.html',    en: 'Sell',    no: 'Selg'    },
-    { id: 'contact', href: 'contact.html', en: 'Contact', no: 'Kontakt' }
-  ];
+  /* ---------- 1. NAVIGACIJA — vienintelis šaltinis ----------
+     Kiekviena sritis turi SAVO meniu. Silo puslapyje jų meniu punktai
+     kitokie nei water jetting pusėje (patikrinta iš screenshot'ų).
+     Silo nuorodos kol kas veda į to paties puslapio sekcijas —
+     atsiradus tikriems puslapiams keičiama tik čia. */
+  var NAV = {
+    water: [
+      { id: 'rent',    href: 'rent.html',    en: 'Rent',    no: 'Utleie'  },
+      { id: 'buy',     href: 'buy.html',     en: 'Buy',     no: 'Kjøp'    },
+      { id: 'sell',    href: 'sell.html',    en: 'Sell',    no: 'Selg'    },
+      { id: 'contact', href: 'contact.html', en: 'Contact', no: 'Kontakt' }
+    ],
+    silo: [
+      { id: 'how',  href: 'silo.html#how',        en: 'How We Work', no: 'Slik jobber vi' },
+      { id: 'gui',  href: 'silo.html#faq',        en: 'Guides',      no: 'Guider'         },
+      { id: 'tech', href: 'silo.html#technology', en: 'Technology',  no: 'Teknologi'      },
+      { id: 'abt',  href: 'silo.html#gain',       en: 'About',       no: 'Om oss'         },
+      { id: 'kno',  href: 'silo.html#news',       en: 'Knowledge',   no: 'Kunnskap'       }
+    ]
+  };
+
+  /* Footer „Quick links" irgi skiriasi pagal sritį */
+  var QUICK = {
+    water: [
+      { href: 'rent.html',    en: 'Rent',       no: 'Utleie'     },
+      { href: 'buy.html',     en: 'Buy',        no: 'Kjøp'       },
+      { href: 'sell.html',    en: 'Sell',       no: 'Selg'       },
+      { href: 'contact.html', en: 'Contact Us', no: 'Kontakt oss'}
+    ],
+    silo: [
+      { href: 'silo.html#how',        en: 'What We Do',   no: 'Hva vi gjør'  },
+      { href: 'silo.html#gain',       en: 'Where We Win', no: 'Hvor vi vinner'},
+      { href: 'contact.html',         en: 'Contact Us',   no: 'Kontakt oss'  },
+      { href: 'contact.html',         en: 'Request Help', no: 'Be om hjelp'  }
+    ]
+  };
 
   /* Sritys po logotipu */
   /* Kuris puslapis kuriai sričiai priklauso.
@@ -32,6 +61,7 @@
   /* Tekstai, kurie kartojasi header/footer visuose puslapiuose */
   var T = {
     emergency:  { en: 'Emergency',            no: 'Nødlinje' },
+    help:       { en: 'Request Help',         no: 'Be om hjelp' },
     active:     { en: 'Active',               no: 'Aktiv' },
     back:       { en: 'Back to frontpage',    no: 'Tilbake til forsiden' },
     contactH:   { en: 'Contact',              no: 'Kontakt' },
@@ -58,6 +88,14 @@
     globe:  '<circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>',
     chat:   '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'
   };
+
+  /* Kuriai sričiai priklauso šis puslapis */
+  function divisionOf(page) {
+    for (var i = 0; i < DIVISIONS.length; i++) {
+      if (DIVISIONS[i].pages.indexOf(page) !== -1) return DIVISIONS[i].id;
+    }
+    return 'water';
+  }
 
   function svg(paths, extra) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="' +
@@ -98,8 +136,11 @@
   }
 
   /* ---------- 3. HEADER ---------- */
-  function buildHeader(page) {
-    var navHtml = NAV.map(function (item) {
+  function buildHeader(page, div) {
+    var items   = NAV[div] || NAV.water;
+    var isSilo  = (div === 'silo');
+
+    var navHtml = items.map(function (item) {
       return '<a href="' + item.href + '" data-no="' + item.no + '"' +
              (page === item.id ? ' class="is-active"' : '') + '>' + item.en + '</a>';
     }).join('');
@@ -114,7 +155,7 @@
     }).join('');
 
     return '' +
-    '<header class="hdr">' +
+    '<header class="hdr' + (isSilo ? ' hdr--silo is-top' : '') + '" id="hdr">' +
       '<div class="brand-wrap">' +
         '<button class="brand" id="brandBtn" aria-expanded="false" aria-haspopup="true" aria-label="Bluepower">' +
           '<span class="wm"><img src="assets/logo.png" alt="Bluepower"></span>' +
@@ -130,21 +171,25 @@
       '<div class="hdr-right">' +
         '<button class="lang" id="langBtn" aria-label="Change language">' +
           (lang === 'en' ? 'no' : 'en') + '</button>' +
-        '<a class="emg" href="contact.html">' + svg(ICON.phone, 2) +
+        '<a class="emg" href="tel:+4795169552">' + svg(ICON.phone, 2) +
           '<span data-no="' + T.emergency.no + '">' + T.emergency.en + '</span></a>' +
+        (isSilo
+          ? '<a class="hbtn" href="contact.html" data-no="' + T.help.no + '">' + T.help.en + '</a>'
+          : '') +
         '<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">' +
           svg(ICON.burger, 2) + '</button>' +
       '</div>' +
     '</header>' +
     '<div class="mmenu" id="mmenu">' +
-      NAV.map(function (i) {
+      items.map(function (i) {
         return '<a href="' + i.href + '" data-no="' + i.no + '">' + i.en + '</a>';
       }).join('') +
     '</div>';
   }
 
   /* ---------- 4. FOOTER ---------- */
-  function buildFooter() {
+  function buildFooter(div) {
+    var quick = QUICK[div] || QUICK.water;
     return '' +
     '<footer class="ftr">' +
       '<div class="ftr-grid">' +
@@ -161,10 +206,9 @@
           '<li>' + svg(ICON.pin) + '<span>Versvikvegen 9, 3937 Porsgrunn</span></li>' +
         '</ul></div>' +
         '<div><h4 data-no="' + T.quick.no + '">' + T.quick.en + '</h4><ul>' +
-          NAV.slice(0, 3).map(function (i) {
+          quick.map(function (i) {
             return '<li><a href="' + i.href + '" data-no="' + i.no + '">' + i.en + '</a></li>';
           }).join('') +
-          '<li><a href="contact.html" data-no="' + T.contactUs.no + '">' + T.contactUs.en + '</a></li>' +
         '</ul></div>' +
         '<div class="partners"><h4 data-no="' + T.partners.no + '">' + T.partners.en + '</h4>' +
           '<a href="partners.html" data-no="' + T.partnersL.no + '">' + T.partnersL.en + '</a></div>' +
@@ -211,6 +255,16 @@
       });
     }
 
+    /* Silo antraštė permatoma tik puslapio viršuje, paslinkus — vientisa */
+    var hdr = document.getElementById('hdr');
+    if (hdr && hdr.classList.contains('hdr--silo')) {
+      var onScroll = function () {
+        hdr.classList.toggle('is-top', (window.pageYOffset || 0) < 8);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
     var langBtn = document.getElementById('langBtn');
     if (langBtn) {
       langBtn.addEventListener('click', function () {
@@ -228,10 +282,11 @@
 
   /* ---------- 6. Paleidimas ---------- */
   var page = document.body.getAttribute('data-page') || '';
+  var div  = divisionOf(page);
   var hEl = document.getElementById('site-header');
   var fEl = document.getElementById('site-footer');
-  if (hEl) hEl.outerHTML = buildHeader(page);
-  if (fEl) fEl.outerHTML = buildFooter();
+  if (hEl) hEl.outerHTML = buildHeader(page, div);
+  if (fEl) fEl.outerHTML = buildFooter(div);
   applyLang();
   wire();
 })();
