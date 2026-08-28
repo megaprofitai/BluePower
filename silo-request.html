@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0B2A4A">
+<meta name="robots" content="noindex, nofollow">
+<title data-no="Be om hjelp | BluePower">Request Help | BluePower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="req" data-div="silo">
+
+<div id="site-header"></div>
+
+<main>
+  <section class="si-band si-problem">
+    <div class="wrap sl-wz">
+
+      <ol class="wz-steps sl-steps">
+        <li class="is-on" data-no="Kontakt">Contact</li>
+        <li data-no="Detaljer">Details</li>
+        <li data-no="Bekreftelse">Confirmation</li>
+      </ol>
+
+      <!-- ---------- 1 žingsnis: kontaktai ---------- -->
+      <section class="wz-step is-on" data-step="1">
+        <div class="rq-split">
+          <div class="rq-info">
+            <h1 data-no="Trenger du hjelp med en silo?">Need help with a silo?</h1>
+            <p class="wz-hint" data-no="Ring oss, eller fyll ut det korte skjemaet og fortell kort om situasjonen.">Call us or fill in the short form and tell us briefly about your situation.</p>
+            <ul class="ct-direct rq-direct">
+              <li><a href="mailto:post@bluepower.no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>post@bluepower.no</a></li>
+              <li><a href="tel:+4795169552"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 5.18 2 2 0 0 1 4.11 3h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.62 2.61a2 2 0 0 1-.45 2.11L8 10.73a16 16 0 0 0 6 6l1.29-1.29a2 2 0 0 1 2.11-.45c.84.29 1.71.5 2.61.62A2 2 0 0 1 22 16.9z"/></svg>+47 951 69 552</a></li>
+            </ul>
+          </div>
+
+          <div class="rq-form">
+            <div class="sl-f"><span data-no="Sted *">Location *</span>
+              <div class="ct-switch" role="group">
+                <button type="button" class="ct-opt is-on" data-loc="no" data-no="Norge">Norway</button>
+                <button type="button" class="ct-opt" data-loc="int" data-no="Internasjonalt">International</button>
+              </div>
+            </div>
+
+            <div id="noFields">
+              <div class="sl-f"><span data-no="Firma i Brønnøysund *">Company in Brønnøysund *</span>
+                <div class="ct-search">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg>
+                  <input type="text" id="rqCo" autocomplete="off" data-ph-no="Søk etter firma i Brønnøysund" placeholder="Search for a company in Brønnøysund">
+                </div>
+                <div class="ct-results" id="rqCoRes" hidden></div>
+              </div>
+            </div>
+
+            <div id="intFields" hidden>
+              <label class="sl-f"><span data-no="Firma *">Company *</span>
+                <input type="text" name="coInt" data-ph-no="Firmaet ditt" placeholder="Your company"></label>
+              <label class="sl-f"><span data-no="Land / sted">Country / location</span>
+                <input type="text" name="country" data-ph-no="f.eks. Tyskland" placeholder="e.g. Germany"></label>
+            </div>
+
+            <label class="sl-f"><span data-no="Kontaktperson *">Contact person *</span>
+              <input type="text" name="nm" data-ph-no="Fullt navn" placeholder="Full name"></label>
+
+            <div class="sl-row">
+              <label class="sl-f"><span data-no="E-post *">Email *</span>
+                <input type="email" name="em" data-ph-no="epost@firma.no" placeholder="email@company.com"></label>
+              <label class="sl-f"><span data-no="Telefon">Phone</span>
+                <input type="tel" name="ph" data-ph-no="+47 …" placeholder="+47 …"></label>
+            </div>
+
+            <label class="sl-f"><span data-no="Kort beskrivelse av problemet">Short description of the issue</span>
+              <textarea name="msg" rows="4" data-ph-no="Hva trenger du hjelp med?" placeholder="What do you need help with?"></textarea></label>
+
+            <label class="sl-consent">
+              <input type="checkbox" id="rqConsent">
+              <span data-no="Jeg samtykker i at BluePower AS kan kontakte meg om denne henvendelsen.">I agree that BluePower AS may contact me regarding this request.</span>
+            </label>
+
+            <p class="wz-err" id="rqErr" hidden></p>
+
+            <div class="wz-nav one">
+              <button class="btn btn-primary" type="button" id="rqNext"><span data-no="Neste steg">Next step</span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- 2 žingsnis: detalės ---------- -->
+      <section class="wz-step" data-step="2">
+        <h2 data-no="Tilleggsinformasjon for raskere tilbud">Additional information for a faster offer</h2>
+        <p class="wz-hint" data-no="Jo mer du fyller ut, desto raskere og mer presist blir tilbudet.">The more you fill in, the faster and more accurate our offer will be.</p>
+
+        <div class="rq-sec">
+          <p class="rq-sec-t" data-no="Anlegg">Plant</p>
+          <label class="sl-f"><span data-no="Anleggets navn">Plant name</span>
+            <input type="text" name="plant" data-ph-no="f.eks. Norcem Brevik" placeholder="e.g. Norcem Brevik"></label>
+          <div class="sl-row">
+            <label class="sl-f"><span data-no="Adresse">Address</span><input type="text" name="addr"></label>
+            <label class="sl-f"><span data-no="Land">Country</span><input type="text" name="ctry" value="Norway"></label>
+          </div>
+        </div>
+
+        <div class="rq-sec">
+          <p class="rq-sec-t" data-no="Silo">Silo</p>
+          <label class="sl-f"><span data-no="Silo-ID / navn">Silo ID / name</span>
+            <input type="text" name="siloId" data-ph-no="f.eks. Silo 3F" placeholder="e.g. Silo 3F"></label>
+          <div class="rq-three">
+            <label class="sl-f"><span data-no="Høyde (m)">Height (m)</span><input type="text" name="h" inputmode="decimal"></label>
+            <label class="sl-f"><span data-no="Diameter (m)">Diameter (m)</span><input type="text" name="d" inputmode="decimal"></label>
+            <label class="sl-f"><span data-no="Volum (m³)">Volume (m&sup3;)</span><input type="text" name="v" inputmode="decimal"></label>
+          </div>
+        </div>
+
+        <div class="rq-sec">
+          <p class="rq-sec-t" data-no="Materiale og blokkering">Material &amp; blockage</p>
+          <div class="sl-row">
+            <label class="sl-f"><span data-no="Materialtype">Material type</span>
+              <select name="mat"></select></label>
+            <label class="sl-f"><span data-no="Type blokkering">Blockage type</span>
+              <select name="blk"></select></label>
+          </div>
+          <label class="sl-f"><span data-no="Utmatingskapasitet (tonn/time)">Discharge capacity (tons/hour)</span>
+            <input type="text" name="cap" inputmode="decimal"></label>
+        </div>
+
+        <div class="rq-sec">
+          <p class="rq-sec-t" data-no="Inspeksjon og ATEX">Inspection &amp; ATEX</p>
+          <div class="sl-row">
+            <label class="sl-f"><span data-no="Inspeksjonskvalitet">Inspection quality</span>
+              <select name="insp"></select></label>
+            <label class="sl-f"><span data-no="ATEX">ATEX</span>
+              <select name="atex"></select></label>
+          </div>
+        </div>
+
+        <div class="rq-sec">
+          <p class="rq-sec-t" data-no="Vedlegg">Attachments</p>
+          <div class="sl-drop" id="rqDrop">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0-4 4m4-4 4 4M5 13v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+            <p data-no="Last opp bilder, video eller tegninger">Upload photos, video or drawings</p>
+            <button type="button" class="sl-pick" id="rqPick" data-no="Velg filer">Choose files</button>
+            <input type="file" id="rqFiles" accept="image/jpeg,image/png" multiple hidden>
+          </div>
+          <div class="sl-thumbs" id="rqThumbs"></div>
+        </div>
+
+        <div class="wz-nav">
+          <button class="btn btn-outline" type="button" id="rqSkip"><span data-no="Hopp over">Skip for now</span></button>
+          <button class="btn btn-primary" type="button" id="rqSend"><span data-no="Send detaljer">Submit details</span></button>
+        </div>
+      </section>
+
+      <!-- ---------- 3 žingsnis: patvirtinimas ---------- -->
+      <section class="wz-step wz-done" data-step="3">
+        <span class="rq-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.6 2.7L16.4 9"/></svg></span>
+        <h2 data-no="Takk for henvendelsen!">Thank you for your request!</h2>
+        <p class="wz-hint" data-no="BluePower AS har mottatt henvendelsen din. Vi kommer tilbake til deg så snart som mulig med et tilbud.">BluePower AS has received your request. We&rsquo;ll get back to you as soon as possible with an offer.</p>
+        <p class="wz-hint" id="rqRef"></p>
+        <p class="sl-note" data-no="Du kan sende oss mer informasjon senere ved å kontakte oss direkte.">You can add more information later by contacting us directly.</p>
+        <div class="wz-nav one">
+          <a class="btn btn-outline" href="silo.html" data-no="Tilbake til silorengjøring">Back to silo cleaning</a>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+<script src="assets/site.js"></script>
+<script src="assets/silo-request.js"></script>
+
+<!-- ============================================================
+     NORVEGIŠKI TEKSTAI — MŪSŲ VERTIMAS, REIKIA KLIENTO PERŽIŪROS
+       EN: Request Help | BluePower
+       NO: Be om hjelp | BluePower
+       EN: Contact
+       NO: Kontakt
+       EN: Details
+       NO: Detaljer
+       EN: Confirmation
+       NO: Bekreftelse
+       EN: Need help with a silo?
+       NO: Trenger du hjelp med en silo?
+       EN: Call us or fill in the short form and tell us briefly about your situation.
+       NO: Ring oss, eller fyll ut det korte skjemaet og fortell kort om situasjonen.
+       EN: Location *
+       NO: Sted *
+       EN: Norway
+       NO: Norge
+       EN: International
+       NO: Internasjonalt
+       EN: Company in Brønnøysund *
+       NO: Firma i Brønnøysund *
+       EN: Company *
+       NO: Firma *
+       EN: Country / location
+       NO: Land / sted
+       EN: Contact person *
+       NO: Kontaktperson *
+       EN: Email *
+       NO: E-post *
+       EN: Phone
+       NO: Telefon
+       EN: Short description of the issue
+       NO: Kort beskrivelse av problemet
+       EN: I agree that BluePower AS may contact me regarding this request.
+       NO: Jeg samtykker i at BluePower AS kan kontakte meg om denne henvendelsen.
+       EN: Next step
+       NO: Neste steg
+       EN: Additional information for a faster offer
+       NO: Tilleggsinformasjon for raskere tilbud
+       EN: The more you fill in, the faster and more accurate our offer will be.
+       NO: Jo mer du fyller ut, desto raskere og mer presist blir tilbudet.
+       EN: Plant
+       NO: Anlegg
+       EN: Plant name
+       NO: Anleggets navn
+       EN: Address
+       NO: Adresse
+       EN: Country
+       NO: Land
+       EN: Silo ID / name
+       NO: Silo-ID / navn
+       EN: Height (m)
+       NO: Høyde (m)
+       EN: Volume (m³)
+       NO: Volum (m³)
+       EN: Material & blockage
+       NO: Materiale og blokkering
+       EN: Material type
+       NO: Materialtype
+       EN: Blockage type
+       NO: Type blokkering
+       EN: Discharge capacity (tons/hour)
+       NO: Utmatingskapasitet (tonn/time)
+       EN: Inspection & ATEX
+       NO: Inspeksjon og ATEX
+       EN: Inspection quality
+       NO: Inspeksjonskvalitet
+       EN: Attachments
+       NO: Vedlegg
+       EN: Upload photos, video or drawings
+       NO: Last opp bilder, video eller tegninger
+       EN: Choose files
+       NO: Velg filer
+       EN: Skip for now
+       NO: Hopp over
+       EN: Submit details
+       NO: Send detaljer
+       EN: Thank you for your request!
+       NO: Takk for henvendelsen!
+       EN: BluePower AS has received your request. We’ll get back to you as soon as possible with an offer.
+       NO: BluePower AS har mottatt henvendelsen din. Vi kommer tilbake til deg så snart som mulig med et tilbud.
+       EN: You can add more information later by contacting us directly.
+       NO: Du kan sende oss mer informasjon senere ved å kontakte oss direkte.
+       EN: Back to silo cleaning
+       NO: Tilbake til silorengjøring
+       EN: Search for a company in Brønnøysund
+       NO: Søk etter firma i Brønnøysund
+       EN: Your company
+       NO: Firmaet ditt
+       EN: e.g. Germany
+       NO: f.eks. Tyskland
+       EN: Full name
+       NO: Fullt navn
+       EN: email@company.com
+       NO: epost@firma.no
+       EN: +47 …
+       NO: +47 …
+       EN: What do you need help with?
+       NO: Hva trenger du hjelp med?
+       EN: e.g. Norcem Brevik
+       NO: f.eks. Norcem Brevik
+       EN: e.g. Silo 3F
+       NO: f.eks. Silo 3F
+     ============================================================ -->
+</body>
+</html>
