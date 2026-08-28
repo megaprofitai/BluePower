@@ -22,11 +22,11 @@
       { id: 'contact', href: 'contact.html', en: 'Contact', no: 'Kontakt' }
     ],
     silo: [
-      { id: 'how',  href: 'silo.html#how',        en: 'How We Work', no: 'Slik jobber vi' },
-      { id: 'gui',  href: 'silo.html#faq',        en: 'Guides',      no: 'Guider'         },
+      { id: 'how',  href: 'silo-how.html',       en: 'How We Work', no: 'Slik jobber vi' },
+      { id: 'gui',  href: 'silo-guides.html',    en: 'Guides',      no: 'Guider'         },
       { id: 'tech', href: 'silo.html#technology', en: 'Technology',  no: 'Teknologi'      },
-      { id: 'abt',  href: 'silo.html#gain',       en: 'About',       no: 'Om oss'         },
-      { id: 'kno',  href: 'silo.html#news',       en: 'Knowledge',   no: 'Kunnskap'       }
+      { id: 'abt',  href: 'silo-about.html',     en: 'About',       no: 'Om oss'         },
+      { id: 'kno',  href: 'silo-knowledge.html', en: 'Knowledge',   no: 'Kunnskap'       }
     ]
   };
 
@@ -39,10 +39,10 @@
       { href: 'contact.html', en: 'Contact Us', no: 'Kontakt oss'}
     ],
     silo: [
-      { href: 'silo.html#how',        en: 'What We Do',   no: 'Hva vi gjør'  },
-      { href: 'silo.html#gain',       en: 'Where We Win', no: 'Hvor vi vinner'},
+      { href: 'silo-what.html',       en: 'What We Do',   no: 'Hva vi gjør'  },
+      { href: 'silo-win.html',        en: 'Where We Win', no: 'Hvor vi vinner'},
       { href: 'contact.html',         en: 'Contact Us',   no: 'Kontakt oss'  },
-      { href: 'contact.html',         en: 'Request Help', no: 'Be om hjelp'  }
+      { href: 'silo-request.html',    en: 'Request Help', no: 'Be om hjelp'  }
     ]
   };
 
@@ -51,7 +51,7 @@
      Esant bet kuriame water-srities puslapyje, "Water jetting" lieka ACTIVE. */
   var DIVISIONS = [
     { id: 'silo',  href: 'silo.html',  en: 'Silo cleaning', no: 'Silorengjøring',
-      pages: ['silo'],
+      pages: ['silo', 'how', 'gui', 'abt', 'kno', 'wdo', 'win', 'req'],
       icon: '<path d="M4 3h16"/><path d="M6.5 3v9l3 4.5V21h5v-4.5l3-4.5V3"/><path d="M6.5 8.5h11"/>' },
     { id: 'water', href: 'index.html', en: 'Water jetting', no: 'Vannjetting',
       pages: ['water', 'rent', 'buy', 'sell', 'contact'],
@@ -176,7 +176,7 @@
         '<a class="emg" href="tel:+4795169552">' + svg(ICON.phone, 2) +
           '<span data-no="' + T.emergency.no + '">' + T.emergency.en + '</span></a>' +
         (isSilo
-          ? '<a class="hbtn" href="contact.html" data-no="' + T.help.no + '">' + T.help.en + '</a>'
+          ? '<a class="hbtn" href="silo-request.html" data-no="' + T.help.no + '">' + T.help.en + '</a>'
           : '') +
         '<button class="burger" id="burger" aria-label="Menu" aria-expanded="false">' +
           svg(ICON.burger, 2) + '</button>' +

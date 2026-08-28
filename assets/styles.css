@@ -65,6 +65,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 .btn-outline:hover{border-color:var(--head-blue);color:var(--head-blue);}
 .btn-outline-light{border-color:rgba(255,255,255,.45);color:#fff;background:transparent;}
 .btn-outline-light:hover{background:rgba(255,255,255,.10);}
+.btn-navy{background:var(--navy-panel);color:#fff;}
+.btn-navy:hover{background:#143C64;}
 .btn-ghost{color:#fff;padding-left:4px;padding-right:4px;}
 .btn-ghost:hover{color:var(--orange-soft);}
 
@@ -1034,18 +1036,18 @@ body.locked{ overflow:hidden; }
    Antraštė — ta pati .hdr be jokių vizualinių išimčių; skiriasi tik
    meniu punktai ir papildomas „Request Help" mygtukas.
    ========================================================= */
-body[data-page="silo"]{
+body[data-div="silo"]{
   --pad: max(24px, calc((100vw - 1336px) / 2));
   --si-mist:#F4F7FA;      /* problema, technologijos, geografija, naujienos */
   --si-ice:#EEF3FB;       /* metodo sekcija — NAUJA, šviesesnė ir mėlynesnė */
   --si-line:#E2E9F1;
 }
-body[data-page="silo"] #problem,
-body[data-page="silo"] #how,
-body[data-page="silo"] #technology,
-body[data-page="silo"] #gain,
-body[data-page="silo"] #news,
-body[data-page="silo"] #faq{ scroll-margin-top:78px; }
+body[data-div="silo"] #problem,
+body[data-div="silo"] #how,
+body[data-div="silo"] #technology,
+body[data-div="silo"] #gain,
+body[data-div="silo"] #news,
+body[data-div="silo"] #faq{ scroll-margin-top:78px; }
 
 /* ---------- papildomas antraštės mygtukas (tik silo) ---------- */
 .hbtn{
@@ -1366,4 +1368,330 @@ body[data-page="silo"] #faq{ scroll-margin-top:78px; }
   .si-ngrid,.si-igrid,.si-cols,.si-qgrid{ grid-template-columns:1fr; }
   .si-band{ padding-top:48px; padding-bottom:56px; }
   .si-cov-h br{ display:none; }
+}
+
+
+/* =========================================================
+   SILO — vidiniai puslapiai (How We Work, Guides, About)
+   Jokių naujų dydžių: viskas iš tos pačios skalės kaip water —
+   44 px puslapio antraštė, 34.5 px sekcija, 17.5 / 16 / 15 / 14 px turinys.
+   ========================================================= */
+
+/* --- puslapio antraštė su vizualu dešinėje (About) --- */
+.page-head.ph-split{ display:grid; grid-template-columns:1fr 480px; gap:64px; align-items:center; }
+.ph-art{
+  position:relative; min-height:300px; border-radius:14px; overflow:hidden;
+  background:
+    linear-gradient(115deg,rgba(6,24,45,.92),rgba(11,42,74,.62)),
+    radial-gradient(circle at 70% 25%,rgba(75,155,209,.45),transparent 38%),
+    linear-gradient(145deg,#58738f,#d7e0e8);
+  box-shadow:0 18px 45px rgba(6,24,45,.22);
+}
+.ph-art::before,.ph-art::after{
+  content:""; position:absolute; border:1px solid rgba(255,255,255,.16); border-radius:50%;
+}
+.ph-art::before{ width:300px; height:300px; right:-60px; top:-56px; }
+.ph-art::after{ width:200px; height:200px; left:-70px; bottom:-74px; }
+.ph-art-in{ position:absolute; inset:0; padding:32px; display:flex; flex-direction:column; justify-content:flex-end; }
+.ph-art-lbl{
+  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  color:#A9C9E2; margin-bottom:8px;
+}
+.ph-art-ttl{ font-size:21px; line-height:1.35; font-weight:700; color:#fff; }
+
+/* --- 5 žingsnių eiga (How We Work) --- */
+.si-flow{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:26px; }
+.si-flow::before{
+  content:""; position:absolute; top:26px; left:10%; right:10%;
+  height:1px; background:#C9D5DF; z-index:0;
+}
+.si-fstep{ position:relative; z-index:1; text-align:center; }
+.si-fnum{
+  width:52px; height:52px; margin:0 auto 20px;
+  border-radius:50%; background:var(--navy-panel); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-size:19px; font-weight:700;
+}
+.si-fstep h2{ font-size:17.5px; line-height:1.35; color:var(--navy-text); margin:0 0 10px; }
+.si-fstep p{ max-width:235px; margin:0 auto; font-size:14px; line-height:1.6; color:var(--body); }
+
+/* --- principai (About) --- */
+.si-prin{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--si-line); border-radius:var(--r-card);
+  background:#fff; overflow:hidden;
+}
+.si-pcard{ padding:32px 26px 34px; border-right:1px solid var(--si-line); transition:background-color .18s ease; }
+.si-pcard:last-child{ border-right:0; }
+.si-pcard:hover{ background:#F7F9FC; }
+.si-pic{ display:block; width:44px; height:44px; margin-bottom:20px; color:var(--head-blue); }
+.si-pic svg{ width:100%; height:100%; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.si-pcard h3{ font-size:17.5px; line-height:1.35; color:var(--navy-text); margin:0 0 10px; }
+.si-pcard p{ font-size:14px; line-height:1.6; color:var(--body); margin:0; }
+
+/* --- patirties skaičiai (About) --- */
+.si-stats{ display:grid; grid-template-columns:repeat(3,1fr); text-align:center; }
+.si-stat{ padding:6px 30px; border-right:1px solid rgba(255,255,255,.18); }
+.si-stat:last-child{ border-right:0; }
+.si-snum{ font-size:44px; line-height:1; font-weight:800; letter-spacing:-.02em; color:#72ADD7; }
+.si-slbl{ margin:12px 0 0; font-size:15px; line-height:1.55; color:#D7E2EC; }
+
+/* --- komanda (About) --- */
+.si-team{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+.si-person{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:28px 20px 30px; text-align:center;
+}
+.si-avatar{
+  width:104px; height:104px; margin:0 auto 22px; border-radius:50%;
+  background:#E9F0F6; color:#617C96; font-size:30px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.si-person h3{ font-size:17.5px; line-height:1.4; color:var(--navy-text); margin:0 0 3px; }
+.si-role{ margin:0 0 14px; font-size:15px; font-weight:600; color:var(--head-blue); }
+.si-person p{ margin:0; font-size:14px; line-height:1.55; color:var(--body); }
+
+/* --- švelnus CTA blokas --- */
+.si-cta2{
+  display:flex; align-items:center; justify-content:space-between; gap:34px;
+  background:#E8EEF4; border:1px solid #CBD7E2; border-radius:var(--r-card);
+  padding:42px 46px;
+}
+.si-cta2 h2{ font-size:28px; line-height:1.28; color:var(--navy-text); margin:0 0 8px; }
+.si-cta2 p{ font-size:15px; line-height:1.6; color:var(--body); margin:0; }
+
+/* --- guides --- */
+.si-ggrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:27px; }
+.si-gcard{
+  display:block; background:#fff; border:1px solid var(--si-line);
+  border-radius:var(--r-card); overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .18s ease;
+}
+.si-gcard:hover{ transform:translateY(-4px); border-color:#C2D3E3; box-shadow:0 16px 34px -22px rgba(11,42,74,.55); }
+.si-gimg{
+  height:214px; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,#123D67,#24598C); color:#B9CBE0;
+}
+.si-gimg svg{ width:56px; height:56px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.si-gbody{ padding:22px 22px 26px; }
+.si-gmeta{ display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:12px; }
+.si-gcat{ font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--orange); }
+.si-gfeat{ font-size:13px; color:var(--orange); }
+.si-gcard h2{ font-size:17.5px; line-height:1.4; color:var(--navy-text); margin:0; }
+.si-gread{
+  display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+  font-size:13.5px; font-weight:700; color:var(--head-blue);
+}
+.si-gread svg{ width:14px; height:14px; transition:transform .18s ease; }
+.si-gcard:hover .si-gread svg{ transform:translateX(3px); }
+
+/* --- „Coming soon" --- */
+.si-soon{ text-align:center; max-width:660px; margin:0 auto; }
+.si-soon-ic{
+  width:80px; height:80px; margin:0 auto 26px; border-radius:50%;
+  background:#E8EEF5; color:var(--head-blue);
+  display:flex; align-items:center; justify-content:center;
+}
+.si-soon-ic svg{ width:34px; height:34px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.si-soon-lbl{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 12px; }
+.si-soon h1{ font-size:44px; font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--head-blue); margin:0 0 16px; }
+.si-soon p{ font-size:18px; line-height:1.6; color:var(--body); margin:0; }
+.si-soon .btn{ margin-top:30px; }
+
+@media (max-width:1180px){
+  .page-head.ph-split{ grid-template-columns:1fr; gap:34px; }
+  .si-flow{ grid-template-columns:repeat(2,1fr); gap:34px 26px; }
+  .si-flow::before{ display:none; }
+  .si-prin{ grid-template-columns:1fr 1fr; }
+  .si-pcard:nth-child(2){ border-right:0; }
+  .si-pcard:nth-child(-n+2){ border-bottom:1px solid var(--si-line); }
+  .si-team{ grid-template-columns:repeat(2,1fr); }
+  .si-ggrid{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:900px){
+  .si-stats{ grid-template-columns:1fr; }
+  .si-stat{ border-right:0; border-bottom:1px solid rgba(255,255,255,.18); padding-top:22px; padding-bottom:22px; }
+  .si-stat:last-child{ border-bottom:0; }
+  .si-cta2{ flex-direction:column; align-items:flex-start; padding:32px 26px; }
+}
+@media (max-width:640px){
+  .si-flow,.si-prin,.si-team,.si-ggrid{ grid-template-columns:1fr; }
+  .si-pcard{ border-right:0 !important; border-bottom:1px solid var(--si-line); }
+  .si-pcard:last-child{ border-bottom:0; }
+  .si-soon h1{ font-size:32px; }
+}
+
+/* =========================================================
+   SILO — What We Do / Where We Win / Knowledge / Request
+   ========================================================= */
+
+/* --- What We Do --- */
+.si-dgrid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.si-dcard{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:26px 26px 30px;
+}
+.si-dic{ display:block; width:30px; height:30px; margin-bottom:16px; color:var(--head-blue); }
+.si-dic svg{ width:100%; height:100%; }
+.si-dcard h2{ font-size:17.5px; font-weight:700; color:var(--navy-text); margin:0 0 8px; }
+.si-dcard > p{ font-size:15px; line-height:1.6; color:var(--body); margin:0 0 14px; }
+.si-dcard ul{ list-style:none; margin:0; padding:0; }
+.si-dcard li{
+  position:relative; padding-left:16px; font-size:14px; line-height:1.7; color:var(--body);
+}
+.si-dcard li::before{ content:"•"; position:absolute; left:0; color:var(--head-blue); font-weight:700; }
+
+/* --- Where We Win --- */
+.si-wins{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.si-wins li{
+  display:flex; align-items:center; gap:16px; min-height:68px;
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:16px 22px; font-size:16px; line-height:1.5; color:var(--navy-text);
+}
+.si-wic{ flex:0 0 auto; display:inline-flex; color:var(--head-blue); }
+.si-wic svg{ width:23px; height:23px; }
+
+/* --- Knowledge Base --- */
+.si-kb{ max-width:880px; }
+.si-filters{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:52px; }
+.si-filter{
+  border:1px solid var(--si-line); background:#fff; color:var(--body);
+  border-radius:999px; padding:9px 16px; cursor:pointer;
+  font-family:var(--font-display); font-size:14px; font-weight:500;
+  transition:border-color .18s ease, color .18s ease;
+}
+.si-filter:hover{ border-color:#B7C7D6; color:var(--navy-text); }
+.si-filter.is-on{ background:var(--navy-panel); border-color:var(--navy-panel); color:#fff; font-weight:700; }
+.si-cat{ margin-bottom:44px; }
+.si-cat:last-child{ margin-bottom:0; }
+.si-cat h2{
+  display:flex; align-items:center; gap:14px; margin:0 0 14px;
+  font-size:12px; font-weight:700; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--navy-text);
+}
+.si-cat h2::after{ content:""; flex:1; height:1px; background:var(--si-line); }
+.si-arts{ display:flex; flex-direction:column; gap:8px; }
+.si-art{
+  position:relative; display:block; background:#fff;
+  border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:15px 50px 17px 20px;
+  transition:border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.si-art:hover{ border-color:#B8C8D6; box-shadow:0 7px 20px rgba(12,47,82,.07); transform:translateY(-2px); }
+.si-art h3{ font-size:16px; font-weight:700; line-height:1.35; color:var(--navy-text); margin:0 0 5px; }
+.si-art p{ font-size:14px; line-height:1.5; color:var(--body); margin:0; }
+.si-art-a{
+  position:absolute; right:20px; top:50%; transform:translateY(-50%) translateX(-4px);
+  opacity:0; color:var(--head-blue); transition:opacity .18s ease, transform .18s ease;
+}
+.si-art-a svg{ width:17px; height:17px; }
+.si-art:hover .si-art-a{ opacity:1; transform:translateY(-50%) translateX(0); }
+
+/* --- Request Help --- */
+.rq-split{ display:grid; grid-template-columns:330px 1fr; gap:56px; align-items:start; }
+.rq-info h1{
+  font-size:34.5px; font-weight:800; line-height:1.2; letter-spacing:-.01em;
+  color:var(--head-blue); margin:0 0 12px;
+}
+.rq-direct{ margin-top:24px; }
+.rq-sec{ margin-bottom:30px; }
+.rq-sec-t{
+  margin:0 0 14px; font-size:12px; font-weight:700; letter-spacing:.11em;
+  text-transform:uppercase; color:var(--head-blue);
+}
+.rq-three{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.rq-ok{
+  display:flex; align-items:center; justify-content:center;
+  width:66px; height:66px; margin:0 auto 22px; border-radius:50%;
+  background:#E4F1E6; color:#2F7D4A;
+}
+.rq-ok svg{ width:32px; height:32px; }
+
+@media (max-width:1180px){
+  .rq-split{ grid-template-columns:1fr; gap:32px; }
+}
+@media (max-width:900px){
+  .si-dgrid{ grid-template-columns:1fr; }
+  .rq-three{ grid-template-columns:1fr; }
+}
+
+/* =========================================================
+   SILO — Knowledge Base straipsniai (bendras šablonas)
+   Vienintelis sąmoningas nukrypimas nuo bendros skalės:
+   pagrindinis tekstas 17 px. Ilgam skaitymui 14–15 px per smulku,
+   o stulpelis siauras (780 px), tad eilutėje lieka ~75 ženklai.
+   ========================================================= */
+.page-head.ph-doc{ padding-top:34px; padding-bottom:64px; }
+.ah-back{
+  display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;
+  font-size:15px; color:rgba(255,255,255,.72);
+}
+.ah-back:hover{ color:#fff; }
+.ah-cat{
+  margin:0 0 34px; font-size:12px; font-weight:800; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--orange);
+}
+.page-head.ph-doc p{ max-width:820px; font-size:19px; line-height:1.65; }
+
+.ar{ max-width:780px; }
+.ar-nonote{
+  display:none; margin:0 0 30px; padding:14px 18px;
+  background:#FFF4EC; border:1px solid #F6D6BF; border-radius:var(--r-card);
+  font-size:14.5px; line-height:1.55; color:#8A4A1C;
+}
+html[lang="no"] .ar-nonote{ display:block; }
+
+.ar-toc{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:22px 26px 24px; margin-bottom:52px;
+}
+.ar-toc-t{
+  margin:0 0 10px; font-size:12px; font-weight:800; letter-spacing:.13em;
+  text-transform:uppercase; color:var(--body);
+}
+.ar-toc a{ display:block; padding-top:5px; padding-bottom:5px; font-size:15px; line-height:1.45; color:var(--head-blue); }
+.ar-toc a:hover{ text-decoration:underline; }
+
+.ar-sec{ margin-bottom:50px; scroll-margin-top:90px; }
+.ar-sec:last-of-type{ margin-bottom:0; }
+.ar-h{ display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.ar-h::before{ content:""; flex:none; width:32px; height:4px; border-radius:3px; background:var(--orange); }
+.ar-h h2{ font-size:28px; font-weight:800; line-height:1.24; letter-spacing:-.01em; color:var(--navy-text); margin:0; }
+.ar-t{ font-size:17px; line-height:1.8; color:var(--body); margin:0 0 22px; }
+.ar-t:last-child{ margin-bottom:0; }
+
+.ar-feature{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:26px 28px 28px;
+}
+.ar-cards{ display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:22px; }
+.ar-card{
+  background:#fff; border:1px solid var(--si-line); border-radius:var(--r-card);
+  padding:20px 22px 22px;
+}
+.ar-card strong{ display:block; font-size:16px; font-weight:700; color:var(--navy-text); margin-bottom:6px; }
+.ar-card p{ margin:0; font-size:15px; line-height:1.65; color:var(--body); }
+
+.ar-sol{ background:var(--navy-panel); border-radius:var(--r-card); padding:30px 32px 32px; }
+.ar-sol .ar-h h2{ color:#fff; }
+.ar-sol .ar-t{ color:rgba(255,255,255,.86); }
+.ar-tags{ display:flex; flex-wrap:wrap; gap:9px; margin-top:22px; }
+.ar-tag{
+  padding:8px 13px; border-radius:var(--r);
+  background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.18);
+  font-size:13.5px; font-weight:600; color:#fff;
+}
+
+.ar-end{
+  margin-top:52px; padding-top:28px; border-top:1px solid var(--si-line);
+  display:inline-flex; align-items:center; gap:9px;
+  font-size:14px; font-weight:700; color:var(--orange);
+}
+.ar-end svg,.ah-back svg{ width:15px; height:15px; }
+
+@media (max-width:700px){
+  .ar-cards{ grid-template-columns:1fr; }
+  .ar-h h2{ font-size:23px; }
+  .ar-t{ font-size:16px; }
+  .page-head.ph-doc p{ font-size:17px; }
 }
