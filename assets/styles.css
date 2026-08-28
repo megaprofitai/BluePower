@@ -369,19 +369,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--orange);outline-off
 .vitem.is-here{ background:var(--mist); }
 
 /* vidinio puslapio antraštės juosta (be hero nuotraukos) */
-.page-head{
-  background:var(--navy-panel);
-  padding:52px var(--pad) 58px;
-}
+/* Ta pati antraste kaip water puslapiuose: sviesi juosta, tekstas centre.
+   Dydis ir spalva paveldimi is BENDRO bloko zemiau — cia nekartojami. */
+.page-head{ background:var(--mist); padding:74px var(--pad) 82px; text-align:center; }
 .page-head .eyebrow{ margin-bottom:14px; }
-.page-head h1{
-  color:#fff;font-weight:800;font-size:44px;line-height:1.1;
-  letter-spacing:-.02em;margin:0 0 14px;
-}
-.page-head p{
-  color:rgba(255,255,255,.82);font-size:17px;line-height:1.6;
-  max-width:620px;margin:0;
-}
 
 /* laikinas turinio vietos ženklas — pakeisti tikru turiniu */
 .pending{
@@ -418,13 +409,17 @@ body.locked{ overflow:hidden; }
    ========================================================= */
 .rent-hero h1,
 .sell-hero h1,
-.ct-emg-txt h1{
+.ct-emg-txt h1,
+.page-head h1,
+.si-soon h1{
   font-size:42px;font-weight:800;letter-spacing:-.02em;line-height:1.15;
   color:var(--head-blue);margin:0 auto 18px;max-width:1000px;
 }
 .rent-hero p,
 .sell-hero p,
-.ct-emg-txt p{
+.ct-emg-txt p,
+.page-head p,
+.si-soon > p{
   font-size:18px;line-height:1.6;color:var(--body);
   max-width:820px;margin:0 auto;
 }
@@ -949,7 +944,7 @@ body.locked{ overflow:hidden; }
 /* =========================================================
    CONTACT
    ========================================================= */
-.ct-emg{ background:var(--mist);border-bottom:1px solid var(--line);
+.ct-emg{ background:var(--mist);
   padding:38px var(--pad);
   --pad:max(28px,calc((100vw - 1280px)/2)); }
 .ct-emg-in{ text-align:center; }
@@ -1014,7 +1009,7 @@ body.locked{ overflow:hidden; }
 }
 @media (max-width:640px){
   .rent-hero h1,.sell-hero h1,.ct-emg-txt h1{ font-size:30px; }
-  .rent-hero p,.sell-hero p,.ct-emg-txt p{ font-size:16px; }
+  .rent-hero p,.sell-hero p,.ct-emg-txt p,.page-head p,.si-soon > p{ font-size:16px; }
   .ct-call{ width:100%;justify-content:center;flex-wrap:wrap;row-gap:2px; }
   .ct-call b{ border-left:0;padding-left:0; }
   .ct-info h2{ font-size:28px; }
@@ -1378,27 +1373,6 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
    ========================================================= */
 
 /* --- puslapio antraštė su vizualu dešinėje (About) --- */
-.page-head.ph-split{ display:grid; grid-template-columns:1fr 480px; gap:64px; align-items:center; }
-.ph-art{
-  position:relative; min-height:300px; border-radius:14px; overflow:hidden;
-  background:
-    linear-gradient(115deg,rgba(6,24,45,.92),rgba(11,42,74,.62)),
-    radial-gradient(circle at 70% 25%,rgba(75,155,209,.45),transparent 38%),
-    linear-gradient(145deg,#58738f,#d7e0e8);
-  box-shadow:0 18px 45px rgba(6,24,45,.22);
-}
-.ph-art::before,.ph-art::after{
-  content:""; position:absolute; border:1px solid rgba(255,255,255,.16); border-radius:50%;
-}
-.ph-art::before{ width:300px; height:300px; right:-60px; top:-56px; }
-.ph-art::after{ width:200px; height:200px; left:-70px; bottom:-74px; }
-.ph-art-in{ position:absolute; inset:0; padding:32px; display:flex; flex-direction:column; justify-content:flex-end; }
-.ph-art-lbl{
-  font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
-  color:#A9C9E2; margin-bottom:8px;
-}
-.ph-art-ttl{ font-size:21px; line-height:1.35; font-weight:700; color:#fff; }
-
 /* --- 5 žingsnių eiga (How We Work) --- */
 .si-flow{ position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:26px; }
 .si-flow::before{
@@ -1493,13 +1467,11 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
   display:flex; align-items:center; justify-content:center;
 }
 .si-soon-ic svg{ width:34px; height:34px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
-.si-soon-lbl{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 12px; }
-.si-soon h1{ font-size:44px; font-weight:800; line-height:1.1; letter-spacing:-.02em; color:var(--head-blue); margin:0 0 16px; }
-.si-soon p{ font-size:18px; line-height:1.6; color:var(--body); margin:0; }
+.si-soon .si-soon-lbl{ font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--orange); margin:0 0 12px; }
+.si-soon p{ margin-left:auto; margin-right:auto; }
 .si-soon .btn{ margin-top:30px; }
 
 @media (max-width:1180px){
-  .page-head.ph-split{ grid-template-columns:1fr; gap:34px; }
   .si-flow{ grid-template-columns:repeat(2,1fr); gap:34px 26px; }
   .si-flow::before{ display:none; }
   .si-prin{ grid-template-columns:1fr 1fr; }
@@ -1518,7 +1490,6 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
   .si-flow,.si-prin,.si-team,.si-ggrid{ grid-template-columns:1fr; }
   .si-pcard{ border-right:0 !important; border-bottom:1px solid var(--si-line); }
   .si-pcard:last-child{ border-bottom:0; }
-  .si-soon h1{ font-size:32px; }
 }
 
 /* =========================================================
@@ -1621,17 +1592,16 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
    pagrindinis tekstas 17 px. Ilgam skaitymui 14–15 px per smulku,
    o stulpelis siauras (780 px), tad eilutėje lieka ~75 ženklai.
    ========================================================= */
-.page-head.ph-doc{ padding-top:34px; padding-bottom:64px; }
+.page-head.ph-doc{ padding-top:44px; padding-bottom:66px; }
 .ah-back{
-  display:inline-flex; align-items:center; gap:8px; margin-bottom:16px;
-  font-size:15px; color:rgba(255,255,255,.72);
+  display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
+  font-size:14px; font-weight:600; color:var(--body);
 }
-.ah-back:hover{ color:#fff; }
-.ah-cat{
-  margin:0 0 34px; font-size:12px; font-weight:800; letter-spacing:.13em;
+.ah-back:hover{ color:var(--head-blue); }
+.page-head .ah-cat{
+  margin:0 0 24px; font-size:12px; font-weight:800; letter-spacing:.13em;
   text-transform:uppercase; color:var(--orange);
 }
-.page-head.ph-doc p{ max-width:820px; font-size:19px; line-height:1.65; }
 
 .ar{ max-width:780px; }
 .ar-nonote{
@@ -1851,3 +1821,16 @@ html[lang="no"] .ar-nonote{ display:block; }
   .fp-silo .fp-list span::before{ left:0; right:auto; }
   .fp-emg{ bottom:18px; font-size:12.5px; padding:13px 20px; }
 }
+
+
+/* =========================================================
+   SKIRIAMOSIOS LINIJOS TARP SEKCIJU
+   Viena taisykle visai svetainei: kiekviena tiesiogine <main>
+   sekcija gauna ploniausia linija apacioje. Paskutine — ne,
+   nes po ja iskart eina porazte.
+   Isimtis: rent.html antraste, nes ant jos uzlipa .steps3
+   korteles ir linija butu perkirsta per puse.
+   ========================================================= */
+main > section{ border-bottom:1px solid var(--line); }
+main > section:last-child{ border-bottom:0; }
+body[data-page="rent"] .rent-hero{ border-bottom:0; }
