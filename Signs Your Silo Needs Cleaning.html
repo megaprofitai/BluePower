@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signs Your Silo Needs Cleaning | BluePower</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --navy:#0c3154;
+  --hero:#123d63;
+  --page:#f4f7fa;
+  --heading:#0d3559;
+  --text:#28557e;
+  --orange:#f47721;
+  --line:#dfe5ea;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--page);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.65;
+}
+
+/* HEADER */
+.header{
+  height:96px;
+  background:var(--navy);
+  color:#fff;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+.nav{
+  width:calc(100% - 200px);
+  max-width:1432px;
+  height:100%;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+}
+.logo{
+  font-size:34px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-1.8px;
+  white-space:nowrap;
+}
+.logo .blue{color:#4c99d1}
+.logo-chevron{
+  margin-left:27px;
+  color:#b5c4d0;
+  font-size:20px;
+  transform:translateY(-1px);
+}
+.navlinks{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:38px;
+  font-size:15px;
+  font-weight:600;
+}
+.navlinks a{color:#fff;text-decoration:none}
+.actions{
+  margin-left:53px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+}
+.lang{
+  padding:7px 11px;
+  border:1px solid #668097;
+  border-radius:6px;
+  font-size:14px;
+}
+.emergency{
+  padding:10px 17px;
+  border-radius:8px;
+  background:var(--orange);
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  box-shadow:0 3px 8px rgba(0,0,0,.17);
+}
+.request{
+  padding:10px 17px;
+  border-radius:8px;
+  background:#4d6880;
+  border:1px solid #71879a;
+  color:#fff;
+  font-size:15px;
+  font-weight:600;
+}
+
+/* HERO */
+.hero{
+  height:390px;
+  background:linear-gradient(180deg,#123d63 0%,#10395d 100%);
+  color:#fff;
+}
+.hero-inner{
+  width:calc(100% - 200px);
+  max-width:1432px;
+  height:100%;
+  margin:0 auto;
+  padding-top:14px;
+}
+.back{
+  color:#b6c8d8;
+  font-size:15px;
+  margin-bottom:18px;
+}
+.category{
+  color:var(--orange);
+  font-size:13px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:1.15px;
+  margin-bottom:45px;
+}
+h1{
+  margin:0 0 24px;
+  color:#fff;
+  font-size:52px;
+  line-height:1.13;
+  letter-spacing:-2.15px;
+  font-weight:800;
+}
+.hero-description{
+  width:700px;
+  color:#d2dfeb;
+  font-size:21px;
+  line-height:1.58;
+  margin:0;
+}
+
+/* CONTENT */
+main{
+  width:calc(100% - 200px);
+  max-width:1432px;
+  margin:0 auto;
+  padding:86px 0 82px;
+}
+.contents{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:27px 25px 24px;
+  margin-bottom:30px;
+}
+.contents-title{
+  color:#4c657c;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  margin-bottom:13px;
+}
+.contents a{
+  display:block;
+  color:#3a6083;
+  text-decoration:none;
+  font-size:15px;
+  line-height:1.82;
+}
+.section{
+  margin:0 0 49px;
+}
+.section h2{
+  position:relative;
+  margin:0 0 20px;
+  padding-left:43px;
+  color:var(--heading);
+  font-size:32px;
+  line-height:1.25;
+  letter-spacing:-1.1px;
+  font-weight:750;
+}
+.section h2:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  width:32px;
+  height:4px;
+  transform:translateY(-50%);
+  background:var(--orange);
+}
+.section p{
+  margin:0;
+  color:var(--text);
+  font-size:20px;
+  line-height:1.75;
+}
+.article-end{
+  border-top:1px solid var(--line);
+  padding-top:37px;
+  color:var(--orange);
+  font-size:15px;
+}
+.article-end a{color:var(--orange);text-decoration:none}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);
+  color:#d6e1eb;
+  padding:52px 0 35px;
+}
+.footer-inner{
+  width:calc(100% - 200px);
+  max-width:1432px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.25fr 1fr 1fr 1fr;
+  gap:70px;
+}
+.footer-logo{
+  color:#fff;
+  font-size:27px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-1.2px;
+}
+.footer-logo .blue{color:#4c99d1}
+.tagline{
+  margin-top:9px;
+  margin-bottom:16px;
+  font-size:15px;
+  font-style:italic;
+}
+.footer h3{
+  margin:0 0 10px;
+  color:#fff;
+  font-size:16px;
+}
+.footer p,.footer a{
+  margin:0;
+  color:#d6e1eb;
+  text-decoration:none;
+  font-size:15px;
+  line-height:1.9;
+}
+.footer-bottom{
+  width:calc(100% - 200px);
+  max-width:1432px;
+  margin:34px auto 0;
+  padding-top:27px;
+  border-top:1px solid rgba(255,255,255,.16);
+  color:#d6e1eb;
+  font-size:13px;
+}
+
+/* CHAT */
+.chat{
+  position:fixed;
+  right:25px;
+  bottom:24px;
+  width:61px;
+  height:61px;
+  border-radius:50%;
+  background:#0d3153;
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+.chat:before{
+  content:"";
+  position:absolute;
+  left:18px;
+  top:18px;
+  width:22px;
+  height:17px;
+  border:2px solid #fff;
+  border-radius:5px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .nav,.hero-inner,main,.footer-inner,.footer-bottom{width:calc(100% - 80px)}
+  .navlinks{gap:20px}
+  .actions{margin-left:25px}
+}
+@media(max-width:760px){
+  .header{height:auto;padding:18px 0}
+  .nav{width:calc(100% - 40px);flex-wrap:wrap;gap:16px}
+  .navlinks{display:none}
+  .actions{margin-left:auto}
+  .hero-inner,main,.footer-inner,.footer-bottom{width:calc(100% - 40px)}
+  .hero{height:400px}
+  h1{font-size:38px}
+  .hero-description{width:auto;font-size:18px}
+  main{padding-top:45px}
+  .section h2{font-size:27px}
+  .section p{font-size:18px}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .logo{font-size:27px}
+  .lang,.request{display:none}
+  .footer-inner{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="nav">
+    <div class="logo"><span class="blue">BLUE</span>POWER</div>
+    <div class="logo-chevron">⌄</div>
+
+    <nav class="navlinks">
+      <a href="#">How We Work</a>
+      <a href="#">Guides</a>
+      <a href="#">Technology</a>
+      <a href="#">About</a>
+      <a href="#">Knowledge</a>
+    </nav>
+
+    <div class="actions">
+      <span class="lang">NO</span>
+      <span class="emergency">☎ EMERGENCY</span>
+      <span class="request">Request Help</span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="back">← &nbsp;All articles</div>
+    <div class="category">MAINTENANCE</div>
+    <h1>Signs Your Silo Needs Cleaning</h1>
+    <p class="hero-description">
+      Many silo problems develop gradually over weeks and months.
+      Recognizing the early warning signs can save significant costs and
+      prevent production shutdowns.
+    </p>
+  </div>
+</section>
+
+<main>
+  <div class="contents">
+    <div class="contents-title">CONTENTS</div>
+    <a href="#reduced">Reduced Discharge Rate</a>
+    <a href="#uneven">Uneven Material Flow and Quality Issues</a>
+    <a href="#sounds">Unusual Sounds and Vibrations</a>
+    <a href="#level">Level Measurement Issues</a>
+    <a href="#visual">Visual Inspection</a>
+    <a href="#act">When You Should Act</a>
+  </div>
+
+  <section class="section" id="reduced">
+    <h2>Reduced Discharge Rate</h2>
+    <p>
+      The first and most common sign of buildup is a gradual reduction in discharge rate.
+      As material accumulates on walls, the effective cross-section diameter narrows and restricts flow.
+      This change often occurs so gradually that operators do not notice until the rate has decreased by 20-30%.
+      Regular logging of discharge rates makes it easier to detect the trend early.
+    </p>
+  </section>
+
+  <section class="section" id="uneven">
+    <h2>Uneven Material Flow and Quality Issues</h2>
+    <p>
+      When mass flow changes to funnel flow due to wall buildup, new material exits first while old material remains along the walls.
+      This causes varying product quality, especially for time-sensitive materials.
+      Contamination from degraded wall material can also affect product quality.
+      Lumps or discolored particles in the discharge are a clear sign.
+    </p>
+  </section>
+
+  <section class="section" id="sounds">
+    <h2>Unusual Sounds and Vibrations</h2>
+    <p>
+      Material collapse from bridges and wall buildup produces characteristic sounds - sudden thuds and impacts audible from outside the silo.
+      Vibrations in the silo structure can indicate unstable material flow.
+      Creaking and cracking sounds may suggest stuck material under tension.
+      Operators familiar with the silo's normal sound levels will quickly notice changes.
+    </p>
+  </section>
+
+  <section class="section" id="level">
+    <h2>Level Measurement Issues</h2>
+    <p>
+      Unreliable or contradictory readings from level sensors can indicate buildup.
+      Material adhering to sensors gives inaccurate measurements.
+      Radar-based level sensors can give false signals from uneven surfaces caused by funnel flow.
+      Comparison between weighing and level measurement can reveal discrepancies suggesting buildup.
+    </p>
+  </section>
+
+  <section class="section" id="visual">
+    <h2>Visual Inspection</h2>
+    <p>
+      Regular visual inspection through inspection hatches is valuable.
+      Look for material buildup on walls, changed surface patterns, moisture marks, and discoloration.
+      Use of cameras mounted inside the silo can provide continuous monitoring without entry.
+    </p>
+  </section>
+
+  <section class="section" id="act">
+    <h2>When You Should Act</h2>
+    <p>
+      Do not wait until the silo is completely blocked.
+      Contact Blue Power at the first signs of reduced performance.
+      Early intervention is faster, more affordable, and less disruptive than emergency cleaning of a completely blocked silo.
+    </p>
+  </section>
+
+  <div class="article-end">← &nbsp;<a href="#">All articles</a></div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><span class="blue">BLUE</span>POWER</div>
+      <div class="tagline">Keep it simple.</div>
+      <p>◉ &nbsp; Norway · Nordics · EU</p>
+      <p>Org. no. 927159260</p>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>✉ &nbsp; post@bluepower.no</p>
+      <p>♧ &nbsp; +47 951 69 552</p>
+      <p>⌖ &nbsp; Versvikvegen 9, 3937 Porsgrunn</p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <p><a href="#">What We Do</a></p>
+      <p><a href="#">Where We Win</a></p>
+      <p><a href="#">Contact Us</a></p>
+      <p><a href="#">Request Help</a></p>
+    </div>
+
+    <div>
+      <h3>Partners</h3>
+      <p><a href="#">Check out our partners →</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Bluepower AS. All rights reserved. &nbsp;·&nbsp; Terms &nbsp;·&nbsp; Privacy
+  </div>
+</footer>
+
+<div class="chat"></div>
+
+</body>
+</html>
