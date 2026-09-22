@@ -806,7 +806,7 @@ body.locked{ overflow:hidden; }
   transition:border-color .16s ease,background-color .16s ease;
 }
 .sl-drop.is-over{ border-color:var(--head-blue);background:var(--mist); }
-.sl-drop svg{ color:var(--head-blue);margin:0 auto 8px; }
+.sl-drop svg{ color:var(--head-blue);margin:0 auto 8px;width:28px;height:28px; }
 .sl-drop p{ font-size:13px;font-weight:400;color:var(--body);margin:0 0 11px; }
 .sl-pick{
   border:1px solid var(--line);background:#fff;border-radius:6px;
@@ -970,7 +970,7 @@ body.locked{ overflow:hidden; }
 .ct-direct{ list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px; }
 .ct-direct li a,.ct-direct li span{ display:inline-flex;align-items:center;gap:11px;
   font-size:15.5px;color:var(--navy-text);text-decoration:none; }
-.ct-direct svg{ color:var(--head-blue);flex-shrink:0; }
+.ct-direct svg{ color:var(--head-blue);flex-shrink:0;width:17px;height:17px; }
 .ct-direct li a:hover{ color:var(--head-blue); }
 
 .ct-form{ background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:26px 28px 28px; }
@@ -1579,6 +1579,14 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
 
 @media (max-width:1180px){
   .rq-split{ grid-template-columns:1fr; gap:32px; }
+}
+
+/* Request Help — 1 žingsnio plotis/proporcijos suvienodinti su Contact Us puslapiu */
+@media (min-width:1181px){
+  body[data-page="req"] .sl-wz{ max-width:1040px; }
+  body[data-page="req"] .rq-split{ grid-template-columns:420px 1fr; gap:60px; }
+  body[data-page="req"] .wz-step[data-step="2"],
+  body[data-page="req"] .wz-step[data-step="3"]{ max-width:560px; margin-left:auto; margin-right:auto; }
 }
 @media (max-width:900px){
   .si-dgrid{ grid-template-columns:1fr; }
