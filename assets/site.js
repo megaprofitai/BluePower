@@ -24,7 +24,7 @@
     silo: [
       { id: 'how',  href: 'silo-how.html',       en: 'How We Work', no: 'Slik jobber vi' },
       { id: 'gui',  href: 'silo-guides.html',    en: 'Guides',      no: 'Guider'         },
-      { id: 'tech', href: 'silo.html#technology', en: 'Technology',  no: 'Teknologi'      },
+      { id: 'tech', href: 'silo-technology.html', en: 'Technology',  no: 'Teknologi'      },
       { id: 'abt',  href: 'silo-about.html',     en: 'About',       no: 'Om oss'         },
       { id: 'kno',  href: 'silo-knowledge.html', en: 'Knowledge',   no: 'Kunnskap'       }
     ]
@@ -51,7 +51,7 @@
      Esant bet kuriame water-srities puslapyje, "Water jetting" lieka ACTIVE. */
   var DIVISIONS = [
     { id: 'silo',  href: 'silo.html',  en: 'Silo cleaning', no: 'Silorengjøring',
-      pages: ['silo', 'how', 'gui', 'abt', 'kno', 'wdo', 'win', 'req'],
+      pages: ['silo', 'how', 'gui', 'tech', 'abt', 'kno', 'wdo', 'win', 'req'],
       icon: '<path d="M4 3h16"/><path d="M6.5 3v9l3 4.5V21h5v-4.5l3-4.5V3"/><path d="M6.5 8.5h11"/>' },
     { id: 'water', href: 'water.html', en: 'Water jetting', no: 'Vannjetting',
       pages: ['water', 'rent', 'buy', 'sell', 'contact'],
