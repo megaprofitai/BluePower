@@ -1859,6 +1859,16 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-check li{ position:relative; padding-left:20px; font-size:15.5px; line-height:1.6; color:var(--body); }
 .st-check li::before{ content:"•"; position:absolute; left:0; color:var(--head-blue); font-weight:700; }
 
+/* =========================================================
+   SILO-NEWS-*.HTML — vienstulpelė naujienos straipsnio proza,
+   be .ar-toc šoninės juostos (straipsniai trumpi, turinio
+   sąrašo nereikia). Naudoja tuos pačius .ar-h/.ar-t/.st-check
+   stilius kaip technologijos ir žinių bazės puslapiai.
+   ========================================================= */
+.news-body{ max-width:760px; margin:0 auto; }
+.news-body .ar-h{ margin-top:38px; }
+.news-body .st-check{ margin-bottom:22px; }
+
 .st-sys{ display:flex; align-items:center; gap:52px; margin-bottom:64px; }
 .st-sys:last-of-type{ margin-bottom:0; }
 .st-sys.rev{ flex-direction:row-reverse; }
