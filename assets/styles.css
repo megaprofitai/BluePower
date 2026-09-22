@@ -1874,6 +1874,14 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-photo{ background:none; border:0; padding:0; min-height:0; }
 .st-photo img{ width:100%; height:auto; max-height:none; border-radius:var(--r-card); }
 
+/* Atmosphere O2 nuotrauka padidinta ~2x (buvo ~323px pločio šalia teksto,
+   dabar iki 650px per visą plotį) — šalia teksto siaurame stulpelyje ji
+   nebetilptų neišspausdama teksto, tad šiai sekcijai nuotrauką dedame virš
+   teksto, o ne šalia jo. */
+#atmosphere-o2{ flex-direction:column; align-items:stretch; gap:26px; }
+#atmosphere-o2 .st-fig{ width:100%; max-width:650px; margin:0 auto; }
+#atmosphere-o2 .st-body{ min-width:0; }
+
 @media (max-width:760px){
   .st-sys,.st-sys.rev{ flex-direction:column; gap:22px; }
   .st-fig{ width:100%; max-width:none; min-height:220px; }
