@@ -1609,6 +1609,10 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
   max-width:1080px; display:grid; grid-template-columns:216px minmax(0,1fr);
   gap:56px; align-items:start;
 }
+/* Technologijos puslapyje (silo-technology.html) tekstas + nuotraukos eina
+   poromis šalia viena kitos, tad joms reikia daugiau vietos nei įprastam
+   žinių straipsniui — čia praplečiame bendrą turinio pločio ribą. */
+body[data-page="tech"] .ar{ max-width:1300px; }
 .ar-body{ min-width:0; }
 .ar-nonote{
   display:none; margin:0 0 30px; padding:14px 18px;
@@ -1859,7 +1863,7 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-sys:last-of-type{ margin-bottom:0; }
 .st-sys.rev{ flex-direction:row-reverse; }
 .st-fig{
-  flex:0 0 auto; width:40%; max-width:380px; min-height:280px;
+  flex:0 0 auto; width:31%; max-width:330px; min-height:280px;
   background:linear-gradient(160deg,#EDF2F8,#DEE7F0);
   border:1px solid var(--si-line); border-radius:var(--r-card);
   display:flex; align-items:center; justify-content:center; padding:20px;
@@ -1874,28 +1878,17 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-photo{ background:none; border:0; padding:0; min-height:0; }
 .st-photo img{ width:100%; height:auto; max-height:none; border-radius:var(--r-card); }
 
-/* Atmosphere O2: šitai vienai sekcijai grid vietoj flex, kad nuotraukos
-   plotis visada tiksliai tilptų į turimą vietą ir niekada neišsilietų į
-   kairįjį TOC stulpelį (taip nutiko su flex+procentine plataus paveikslo
-   verte). Grid stulpelių dydžiai visada garantuotai telpa į konteinerį:
-   tekstas kairėje gauna visą likusią vietą, nuotrauka dešinėje — iki 440px,
-   bet ne mažiau kaip 220px. */
-#atmosphere-o2{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(220px,440px);
-  align-items:center;
-  gap:40px;
-}
-#atmosphere-o2 .st-body{ order:1; min-width:0; }
-#atmosphere-o2 .st-fig{ order:2; width:100%; max-width:none; }
+/* Technologijos puslapis (žr. body[data-page="tech"] .ar aukščiau) gavo
+   platesnį turinio stulpelį, tad ir nuotraukoms, ir tekstui liko daugiau
+   vietos — tekstas jau nebelūžinėja žodis po žodžio. Atmosphere O2
+   nuotraukai skiriame dar daugiau vietos nei kitoms trims, kad diagrama
+   liktų įskaitoma. */
+#atmosphere-o2 .st-fig{ width:48%; max-width:520px; }
 
 @media (max-width:760px){
   .st-sys,.st-sys.rev{ flex-direction:column; gap:22px; }
   .st-fig{ width:100%; max-width:none; min-height:220px; }
   .st-body{ min-width:0; }
-  #atmosphere-o2{ display:flex; flex-direction:column; gap:22px; }
-  #atmosphere-o2 .st-body,
-  #atmosphere-o2 .st-fig{ order:0; width:100%; max-width:none; }
 }
 
 
