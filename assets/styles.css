@@ -982,7 +982,7 @@ body.locked{ overflow:hidden; }
 .ct-opt.is-on{ border-color:var(--head-blue);background:#EEF4FA;color:var(--navy-text); }
 
 .ct-search{ position:relative; }
-.ct-search svg{ position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#8FA2B8; }
+.ct-search svg{ position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#8FA2B8;width:16px;height:16px; }
 .ct-search input{ padding-left:36px !important; }
 .ct-results{ margin-top:6px;border:1px solid var(--line);border-radius:8px;background:#fff;
   overflow:hidden;box-shadow:0 12px 26px -14px rgba(6,19,39,.35); }
