@@ -51,10 +51,10 @@
      Esant bet kuriame water-srities puslapyje, "Water jetting" lieka ACTIVE. */
   var DIVISIONS = [
     { id: 'silo',  href: 'silo.html',  en: 'Silo cleaning', no: 'Silorengjøring',
-      pages: ['silo', 'how', 'gui', 'tech', 'abt', 'kno', 'wdo', 'win', 'req', 'news', 'sct'],
+      pages: ['silo', 'how', 'gui', 'tech', 'abt', 'kno', 'wdo', 'win', 'req', 'news', 'sct', 'sterms', 'sprivacy'],
       icon: '<path d="M4 3h16"/><path d="M6.5 3v9l3 4.5V21h5v-4.5l3-4.5V3"/><path d="M6.5 8.5h11"/>' },
     { id: 'water', href: 'water.html', en: 'Water jetting', no: 'Vannjetting',
-      pages: ['water', 'rent', 'buy', 'sell', 'contact'],
+      pages: ['water', 'rent', 'buy', 'sell', 'contact', 'wterms', 'wprivacy'],
       icon: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/>' }
   ];
 
@@ -192,6 +192,8 @@
   /* ---------- 4. FOOTER ---------- */
   function buildFooter(div) {
     var quick = QUICK[div] || QUICK.water;
+    var termsHref = (div === 'silo') ? 'silo-terms.html' : 'water-terms.html';
+    var privacyHref = (div === 'silo') ? 'silo-privacy.html' : 'water-privacy.html';
     return '' +
     '<footer class="ftr">' +
       '<div class="ftr-grid">' +
@@ -217,8 +219,8 @@
       '</div>' +
       '<div class="ftr-bottom">' +
         '<span data-no="' + T.rights.no + '">' + T.rights.en + '</span>' +
-        '<span class="dot">·</span><a href="terms.html" data-no="' + T.terms.no + '">' + T.terms.en + '</a>' +
-        '<span class="dot">·</span><a href="privacy.html" data-no="' + T.privacy.no + '">' + T.privacy.en + '</a>' +
+        '<span class="dot">·</span><a href="' + termsHref + '" data-no="' + T.terms.no + '">' + T.terms.en + '</a>' +
+        '<span class="dot">·</span><a href="' + privacyHref + '" data-no="' + T.privacy.no + '">' + T.privacy.en + '</a>' +
       '</div>' +
     '</footer>' +
     '<button class="chat-fab" aria-label="Open chat">' + svg(ICON.chat, 1.8) + '</button>';
