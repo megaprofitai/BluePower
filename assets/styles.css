@@ -1859,28 +1859,25 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-sys:last-of-type{ margin-bottom:0; }
 .st-sys.rev{ flex-direction:row-reverse; }
 .st-fig{
-  flex:0 0 auto; width:46%; max-width:440px; min-height:300px;
+  flex:0 0 auto; width:40%; max-width:380px; min-height:280px;
   background:linear-gradient(160deg,#EDF2F8,#DEE7F0);
   border:1px solid var(--si-line); border-radius:var(--r-card);
   display:flex; align-items:center; justify-content:center; padding:20px;
 }
-.st-fig img{ max-width:100%; max-height:280px; width:auto; object-fit:contain; }
-.st-body{ flex:1; min-width:0; }
+.st-fig img{ max-width:100%; max-height:260px; width:auto; object-fit:contain; }
+.st-body{ flex:1 1 auto; min-width:280px; }
 .st-body h2{ font-size:26px; font-weight:800; letter-spacing:-.01em; color:var(--navy-text); margin:0 0 12px; }
 
-/* Platesnės/žemesnės diagramos (pvz. Atmosphere O2 Control schema, kuri yra
-   horizontali ir su smulkiu tekstu viduje) lieka tame pačiame šoniniame
-   išdėstyme (kad nenutrūktų kairė/dešinė kaitaliojimo eilė), bet gauna
-   didesnę dėžę, kad smulkus tekstas diagramos viduje liktų įskaitomas. */
-.st-sys.st-lg .st-fig{ width:58%; max-width:560px; min-height:340px; padding:26px; }
-.st-sys.st-lg .st-fig img{ max-height:360px; }
-.st-sys.st-lg .st-body{ flex:0 1 38%; }
+/* Atmosphere O2 Control diagrama jau turi savo šviesų foną (tos pačios
+   spalvos kaip .st-fig dėžės), tad jai nereikia dar vieno rėmelio virš
+   rėmelio — paveikslas pats yra dėžė, be papildomo fono/border/padding. */
+.st-photo{ background:none; border:0; padding:0; min-height:0; }
+.st-photo img{ width:100%; height:auto; max-height:none; border-radius:var(--r-card); }
 
 @media (max-width:760px){
   .st-sys,.st-sys.rev{ flex-direction:column; gap:22px; }
   .st-fig{ width:100%; max-width:none; min-height:220px; }
-  .st-sys.st-lg .st-fig{ width:100%; max-width:none; }
-  .st-sys.st-lg .st-body{ flex:1 1 auto; }
+  .st-body{ min-width:0; }
 }
 
 
