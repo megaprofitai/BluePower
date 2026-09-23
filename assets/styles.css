@@ -1774,7 +1774,7 @@ html[lang="no"] .ar-nonote{ display:block; }
 /* --- apatinis tekstas --- */
 .fp-in{
   position:absolute; bottom:11%; display:flex; flex-direction:column;
-  max-width:min(470px,62%); transition:opacity .55s ease;
+  max-width:min(470px,31vw); transition:opacity .55s ease;
 }
 .fp-water .fp-in{ left:clamp(20px,3.3vw,64px); text-align:left; align-items:flex-start; }
 .fp-silo  .fp-in{ right:clamp(20px,3.3vw,64px); text-align:right; align-items:flex-end; }
@@ -1821,8 +1821,8 @@ html[lang="no"] .ar-nonote{ display:block; }
 /* --- nuolatiniai elementai --- */
 .fp-emg{
   position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:5;
-  padding:15px 30px; border-radius:2px;
-  background:rgba(6,18,34,.55); border:1px solid rgba(255,255,255,.10);
+  padding:15px 30px; border-radius:999px;
+  background:transparent; border:1px solid #E3512B;
   color:#E3512B; font-family:var(--font-display);
   font-size:14px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
   white-space:nowrap; backdrop-filter:blur(3px);
