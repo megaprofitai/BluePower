@@ -1629,8 +1629,12 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
 }
 /* Technologijos puslapyje (silo-technology.html) tekstas + nuotraukos eina
    poromis šalia viena kitos, tad joms reikia daugiau vietos nei įprastam
-   žinių straipsniui — čia praplečiame bendrą turinio pločio ribą. */
-body[data-page="tech"] .ar{ max-width:1300px; }
+   žinių straipsniui — čia praplečiame bendrą turinio pločio ribą.
+   2026-09-23: tas pats praplatinimas pritaikytas ir žinių straipsniams
+   (data-page="kno") — 780px stulpelis atrodė per siauras ir paliko per
+   daug tuščios vietos dešinėje plačiuose ekranuose. */
+body[data-page="tech"] .ar,
+body[data-page="kno"]  .ar{ max-width:1300px; }
 .ar-body{ min-width:0; }
 .ar-nonote{
   display:none; margin:0 0 30px; padding:14px 18px;
@@ -1687,8 +1691,14 @@ html[lang="no"] .ar-nonote{ display:block; }
   font-size:13.5px; font-weight:600; color:#fff;
 }
 
+/* 2026-09-23: perkelta iš straipsnio apačios (kur ją reikėdavo scrollinti
+   iki galo, kad pamatytum) į .wrap.ar viršų — dabar rodoma virš Contents
+   šoninės juostos ir teksto stulpelio, iškart po įžangos. grid-column
+   išplečia ją per abu stulpelius (216px + likusi vieta), o justify-self
+   sulaiko plotį tik iki turinio, kad neišsitemptų per visą eilutę. */
 .ar-end{
-  margin-top:52px; padding-top:28px; border-top:1px solid var(--si-line);
+  grid-column:1 / -1; justify-self:start;
+  margin-bottom:32px;
   display:inline-flex; align-items:center; gap:9px;
   font-size:14px; font-weight:700; color:var(--orange);
 }
