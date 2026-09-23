@@ -1637,7 +1637,8 @@ a.si-icard:hover{ box-shadow:0 10px 26px -18px rgba(11,42,74,.5); transform:tran
    (data-page="kno") — 780px stulpelis atrodė per siauras ir paliko per
    daug tuščios vietos dešinėje plačiuose ekranuose. */
 body[data-page="tech"] .ar,
-body[data-page="kno"]  .ar{ max-width:1300px; }
+body[data-page="kno"]  .ar,
+body[data-page="ind"]  .ar{ max-width:1300px; }
 .ar-body{ min-width:0; }
 .ar-nonote{
   display:none; margin:0 0 30px; padding:14px 18px;
