@@ -1888,12 +1888,15 @@ html[lang="no"] .ar-nonote{ display:block; }
 .st-check li::before{ content:"•"; position:absolute; left:0; color:var(--head-blue); font-weight:700; }
 
 /* =========================================================
-   SILO-NEWS-*.HTML — vienstulpelė naujienos straipsnio proza,
-   be .ar-toc šoninės juostos (straipsniai trumpi, turinio
-   sąrašo nereikia). Naudoja tuos pačius .ar-h/.ar-t/.st-check
-   stilius kaip technologijos ir žinių bazės puslapiai.
+   SILO-NEWS-*.HTML, SILO/WATER-TERMS.HTML, SILO/WATER-PRIVACY.HTML —
+   vienstulpelė proza, be .ar-toc šoninės juostos. Naudoja tuos pačius
+   .ar-h/.ar-t/.st-check stilius kaip technologijos ir žinių bazės
+   puslapiai. 2026-09-23: praplatinta nuo 760px iki 1300px, kad
+   teksto blokas sutaptų su Terms/Privacy/Knowledge/Technology pločiu
+   (tas pats skaičius, tik čia dėl vieno stulpelio jis lieka
+   centruotas per margin:0 auto, o ne pristumtas prie kairės kaip .ar).
    ========================================================= */
-.news-body{ max-width:760px; margin:0 auto; }
+.news-body{ max-width:1300px; margin:0 auto; }
 .news-body .ar-h{ margin-top:38px; }
 .news-body .st-check{ margin-bottom:22px; }
 
