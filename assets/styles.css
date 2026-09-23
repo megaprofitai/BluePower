@@ -1532,7 +1532,7 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
 .si-wic svg{ width:23px; height:23px; }
 
 /* --- Knowledge Base --- */
-.si-kb{ max-width:880px; }
+.si-kb{ max-width:880px; margin:0 auto; }
 .si-filters{ display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:52px; }
 .si-filter{
   border:1px solid var(--si-line); background:#fff; color:var(--body);
