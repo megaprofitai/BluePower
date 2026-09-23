@@ -51,7 +51,7 @@
      Esant bet kuriame water-srities puslapyje, "Water jetting" lieka ACTIVE. */
   var DIVISIONS = [
     { id: 'silo',  href: 'silo.html',  en: 'Silo cleaning', no: 'Silorengjøring',
-      pages: ['silo', 'how', 'gui', 'tech', 'abt', 'kno', 'wdo', 'win', 'req', 'news', 'sct', 'sterms', 'sprivacy', 'semg', 'spartners'],
+      pages: ['silo', 'how', 'gui', 'tech', 'abt', 'kno', 'wdo', 'win', 'req', 'news', 'sct', 'sterms', 'sprivacy', 'semg', 'spartners', 'ind'],
       icon: '<path d="M4 3h16"/><path d="M6.5 3v9l3 4.5V21h5v-4.5l3-4.5V3"/><path d="M6.5 8.5h11"/>' },
     { id: 'water', href: 'water.html', en: 'Water jetting', no: 'Vannjetting',
       pages: ['water', 'rent', 'buy', 'sell', 'contact', 'wterms', 'wprivacy', 'wpartners'],

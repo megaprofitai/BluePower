@@ -1241,9 +1241,11 @@ body[data-div="silo"] #faq{ scroll-margin-top:78px; }
 /* =============== 6. PRAMONĖS ŠAKOS =============== */
 .si-igrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
 .si-icard{
-  display:flex; align-items:flex-start; gap:16px;
+  display:flex; align-items:flex-start; gap:16px; text-decoration:none;
   background:var(--si-mist); border-radius:var(--r-card); padding:24px 22px 26px;
+  transition:box-shadow .18s ease, transform .18s ease;
 }
+a.si-icard:hover{ box-shadow:0 10px 26px -18px rgba(11,42,74,.5); transform:translateY(-2px); }
 .si-iic{ display:inline-flex; color:var(--head-blue); }
 .si-iic svg{ width:44px; height:44px; }
 .si-icard h3{ font-size:17.5px; font-weight:700; line-height:1.3; color:var(--head-blue); margin:0 0 12px; }
