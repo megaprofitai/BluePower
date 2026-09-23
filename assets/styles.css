@@ -720,6 +720,7 @@ body.locked{ overflow:hidden; }
   padding:34px;display:flex;align-items:center;justify-content:space-between;
   gap:28px;flex-wrap:wrap;
 }
+.b-partner-logo{ max-width:180px;max-height:56px;width:auto;height:auto;display:block; }
 
 /* --- žinutės laukas --- */
 .msg-add{ margin-bottom:18px; }
@@ -747,7 +748,7 @@ body.locked{ overflow:hidden; }
 .wz-send{ width:100%;justify-content:center; }
 
 @media (max-width:640px){
-  .b-partner{ padding:22px; }
+  .b-partner{ padding:22px;flex-direction:column;text-align:center; }
 }
 
 /* --- BUY: gaminio renderiai juodame fone + busenos zenkliukas --- */
